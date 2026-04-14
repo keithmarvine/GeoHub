@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoHuB | The Spatial Network</title>
+  <meta name="description" content="GeoHuB | The Spatial Network. Global geospatial solutions delivered remotely. GIS mapping, land surveying, spatial analysis, remote sensing, and web GIS development for clients worldwide." />
+  <meta name="keywords" content="GIS, geomatics, remote GIS services, global mapping, spatial analysis, remote sensing, web GIS, cartography, online surveying" />
+
+  <!-- Fonts: DM Sans (body) + Cormorant Garamond (editorial serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons (CSS font, zero JS) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/GeoHUB.svg" />
+  <link rel="shortcut icon" href="/GeoHUB.svg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-brand">
+        <span class="preloader-mark"></span>
+        <span class="preloader-name">GeoHuB</span>
+      </div>
+      <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+      <span class="preloader-pct" id="preloaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ══════════════════════════════════════════════════ NAV ══ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-bar">
+      <a href="#home" class="nav-brand">
+        <img src="/GeoHUB.svg" alt="GeoHuB logo mark" class="nav-logo-icon"/>
+        <span class="brand-name">GeoHuB | The Spatial Network</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#approach" class="nav-link">Approach</a></li>
+        <li><a href="#services" class="nav-link">Expertise</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#portfolio" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn-cta">Get in Touch</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay">
+    <ul class="mob-nav-links">
+      <li><a href="#approach"  class="mob-link">Approach</a></li>
+      <li><a href="#services"  class="mob-link">Expertise</a></li>
+      <li><a href="#about"     class="mob-link">About</a></li>
+      <li><a href="#portfolio" class="mob-link">Projects</a></li>
+      <li><a href="#contact"   class="mob-link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn-mob-cta mob-link">Get in Touch →</a>
+  </div>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════ HERO ══ -->
+    <section class="hero" id="home">
+      <canvas class="geo-canvas" id="geoCanvas"></canvas>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+
+      <!-- Pulse markers -->
+      <div class="pulse-marker pm-1"><span></span></div>
+      <div class="pulse-marker pm-2"><span></span></div>
+
+      <div class="hero-inner">
+        <!-- Left content -->
+        <div class="hero-content">
+          <div class="hero-eyebrow reveal">
+            <span class="eyebrow-num">GIS</span>
+            <span class="eyebrow-divider"></span>
+            <span>Geospatial Intelligence</span>
+            <span class="eyebrow-divider"></span>
+            <span>Global · Remote Delivery</span>
+          </div>
+
+          <h1 class="hero-headline reveal reveal-d1">
+            Geospatial Solutions,<br />
+            Delivered Remotely<br />
+            <em class="serif-accent">Worldwide.</em>
+          </h1>
+
+          <p class="hero-sub reveal reveal-d2">
+            We deliver precision GIS mapping, spatial analysis, remote sensing, and web GIS development to clients across the globe — entirely remotely, with no boundaries.
+          </p>
+
+          <div class="hero-ctas reveal reveal-d3">
+            <a href="#services" class="btn-gold">
+              Our Expertise
+              <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn-outline-white">
+              Get in Touch
+              <i class="bi bi-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: D3 Globe -->
+        <div class="hero-visual reveal reveal-d2">
+          <div class="globe-shell">
+            <div class="globe-core" id="globe-core">
+              <canvas id="globe-canvas" width="360" height="360"></canvas>
+              <div class="globe-ring"></div>
+            </div>
+            <div class="data-tag dt-1">
+              <i class="bi bi-geo-alt"></i>
+              <span>36.8219°E, 1.2921°S</span>
+            </div>
+            <div class="data-tag dt-2">
+              <i class="bi bi-wifi"></i>
+              <span>100% Remote Delivery</span>
+            </div>
+            <div class="data-tag dt-3">
+              <i class="bi bi-globe2"></i>
+              <span>Clients in 8+ Countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticker strip -->
+      <div class="hero-ticker">
+        <div class="ticker-track" id="ticker-track">
+          <span>GIS Mapping</span><span class="tick-dot">·</span>
+          <span>Remote Sensing</span><span class="tick-dot">·</span>
+          <span>Web GIS</span><span class="tick-dot">·</span>
+          <span>Spatial Analysis</span><span class="tick-dot">·</span>
+          <span>Cartography</span><span class="tick-dot">·</span>
+          <span>Geomatics Engineering</span><span class="tick-dot">·</span>
+          <span>Global Delivery</span><span class="tick-dot">·</span>
+          <span>Remote Solutions</span><span class="tick-dot">·</span>
+          <span>Cloud GIS</span><span class="tick-dot">·</span>
+          <span>GIS Mapping</span><span class="tick-dot">·</span>
+          <span>Remote Sensing</span><span class="tick-dot">·</span>
+          <span>Web GIS</span><span class="tick-dot">·</span>
+          <span>Spatial Analysis</span><span class="tick-dot">·</span>
+          <span>Cartography</span><span class="tick-dot">·</span>
+          <span>Geomatics Engineering</span><span class="tick-dot">·</span>
+          <span>Global Delivery</span><span class="tick-dot">·</span>
+          <span>Remote Solutions</span><span class="tick-dot">·</span>
+          <span>Cloud GIS</span><span class="tick-dot">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ APPROACH ══ -->
+    <section class="approach" id="approach">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">01</span>
+          <span>Our Approach</span>
+        </div>
+
+        <div class="approach-grid">
+          <!-- Left: main text -->
+          <div class="approach-left reveal">
+            <h2 class="section-headline">
+              No boundaries.<br />
+              No borders.<br />
+              <em class="serif-accent">Just precision.</em>
+            </h2>
+            <p class="body-text">
+              GeoHuB | The Spatial Network is a globally operating geospatial engineering firm. We work entirely remotely — delivering precision GIS analysis, spatial intelligence, and web mapping solutions to clients anywhere in the world, without ever needing to be on-site.
+            </p>
+            <p class="body-text">
+              From satellite imagery over Sub-Saharan Africa to land suitability studies in Southeast Asia, we harness cloud-based tools and remote sensing technology to serve governments, NGOs, and private enterprises across every continent.
+            </p>
+          </div>
+
+          <!-- Right: three pillars -->
+          <div class="approach-right">
+            <div class="pillar reveal">
+              <h4>Remote Data Acquisition</h4>
+              <p>We source and process satellite imagery, aerial data, and existing spatial datasets — no field visit required. Clients supply context; we deliver analysis.</p>
+            </div>
+            <div class="pillar reveal reveal-d1">
+              <h4>Analyse &amp; Model</h4>
+              <p>Advanced cloud-based spatial analysis, remote sensing interpretation, and multi-criteria modelling — run entirely online and delivered as reports, maps, or datasets.</p>
+            </div>
+            <div class="pillar reveal reveal-d2">
+              <h4>Build &amp; Deploy</h4>
+              <p>Web GIS platforms, interactive dashboards, and spatial APIs — hosted in the cloud and accessible to your team from anywhere in the world.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ EXPERTISE ══ -->
+    <section class="expertise" id="services">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">02</span>
+          <span>Expertise</span>
+        </div>
+
+        <h2 class="section-headline reveal">
+          Four areas of<br />
+          <em class="serif-accent">deep specialisation</em>
+        </h2>
+
+        <div class="expertise-grid">
+
+          <!-- Card 1 -->
+          <div class="exp-card exp-card--light reveal">
+            <div class="exp-card-num">01</div>
+            <h3>GIS Mapping &amp; Spatial Analysis</h3>
+            <p>We deliver advanced geographic information systems analysis, thematic mapping, spatial modelling, and decision-support solutions built on industry-leading platforms.</p>
+            <div class="exp-tags">
+              <span>ArcGIS</span><span>QGIS</span><span>PostGIS</span><span>Spatial SQL</span>
+            </div>
+          </div>
+
+          <!-- Card 2 dark -->
+          <div class="exp-card exp-card--dark reveal reveal-d1">
+            <div class="exp-card-num">02</div>
+            <h3>Geospatial Intelligence &amp; Remote Sensing</h3>
+            <p>We deploy advanced geospatial intelligence across the full project lifecycle — image classification, land use analysis, change detection, and environmental monitoring using satellite and aerial data.</p>
+            <div class="exp-tags">
+              <span>Sentinel</span><span>Landsat</span><span>GEE</span><span>ENVI</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="exp-card exp-card--light reveal reveal-d1">
+            <div class="exp-card-num">03</div>
+            <h3>Land Surveying &amp; Cadastral Services</h3>
+            <p>We conduct topographic, boundary, and cadastral surveys for governments and private developers. Sub-centimetre accuracy using GNSS RTK and drone photogrammetry.</p>
+            <div class="exp-tags">
+              <span>Topographic</span><span>Boundary</span><span>Cadastral</span><span>UAV</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="exp-card exp-card--light reveal reveal-d2">
+            <div class="exp-card-num">04</div>
+            <h3>Web GIS Development &amp; Advisory</h3>
+            <p>We work alongside clients, operators, and investors to design and build interactive spatial web platforms, real-time dashboards, and enterprise GIS infrastructure.</p>
+            <div class="exp-tags">
+              <span>Leaflet</span><span>Mapbox</span><span>GeoServer</span><span>React</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ SECTORS ══ -->
+    <section class="sectors">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">03</span>
+          <span>Sectors</span>
+        </div>
+
+        <h2 class="section-headline reveal">
+          Where we <em class="serif-accent">operate</em>
+        </h2>
+
+        <div class="sectors-grid" id="sectors">
+          <a href="sector.html?id=land-infrastructure" class="sector-card reveal" style="--img: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=900&q=80')">
+            <div class="sector-img"></div>
+            <div class="sector-body">
+              <h4>Land &amp; Infrastructure</h4>
+              <p>Cadastral surveys, boundary demarcation, topographic mapping for roads, dams, and urban infrastructure projects.</p>
+              <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a href="sector.html?id=environment-agriculture" class="sector-card reveal reveal-d1" style="--img: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80')">
+            <div class="sector-img"></div>
+            <div class="sector-body">
+              <h4>Environment &amp; Agriculture</h4>
+              <p>Land cover change, vegetation monitoring, soil analysis, and crop yield modelling using multi-spectral imagery.</p>
+              <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a href="sector.html?id=urban-planning" class="sector-card reveal reveal-d2" style="--img: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80')">
+            <div class="sector-img"></div>
+            <div class="sector-body">
+              <h4>Urban Planning &amp; GIS</h4>
+              <p>City growth modelling, infrastructure planning, utility mapping, and interactive public-facing GIS portals.</p>
+              <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+          <a href="sector.html?id=disaster-risk" class="sector-card reveal reveal-d3" style="--img: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80')">
+            <div class="sector-img"></div>
+            <div class="sector-body">
+              <h4>Disaster Risk &amp; Climate</h4>
+              <p>Flood risk prediction, hazard mapping, climate vulnerability assessment, and emergency spatial data systems.</p>
+              <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ CLIENTS ══ -->
+    <section class="clients-section" id="about">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">04</span>
+          <span>Who We Serve</span>
+        </div>
+
+        <div class="clients-split">
+
+          <div class="clients-intro reveal">
+            <h2 class="section-headline">
+              Global clients.<br />
+              <em class="serif-accent">One remote team.</em>
+            </h2>
+            <p class="body-text">We serve public institutions and private-sector clients across every continent — delivering geospatial solutions remotely, on time, and to the highest technical standard.</p>
+
+            <!-- Team thumbnails -->
+            <div class="team-row">
+              <div class="team-thumb">
+                <span class="team-icon"><i class="bi bi-person"></i></span>
+                <div>
+                  <strong>Keith Mwega</strong>
+                  <span>CEO, Lead GIS Developer</span>
+                </div>
+              </div>
+              <div class="team-thumb">
+                <span class="team-icon"><i class="bi bi-person"></i></span>
+                <div>
+                  <strong>Alex Macharia</strong>
+                  <span>Senior Land Surveyor</span>
+                </div>
+              </div>
+              <div class="team-thumb">
+                <span class="team-icon"><i class="bi bi-person"></i></span>
+                <div>
+                  <strong>Margaret Mungai</strong>
+                  <span>Chief Financial Officer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="clients-right">
+            <div class="client-box reveal reveal-d1">
+              <h4>Governments &amp; Institutions</h4>
+              <ul>
+                <li>National and county government agencies</li>
+                <li>National land and surveying authorities</li>
+                <li>Multilateral development finance institutions</li>
+                <li>Regional development banks</li>
+                <li>NGOs and environmental agencies</li>
+                <li>Academic and research institutions</li>
+              </ul>
+            </div>
+            <div class="client-box reveal reveal-d2">
+              <h4>Private Sector &amp; Developers</h4>
+              <ul>
+                <li>Real estate and property developers</li>
+                <li>Infrastructure and construction companies</li>
+                <li>Mining and extractive industry operators</li>
+                <li>Agriculture and agribusiness enterprises</li>
+                <li>Energy and utilities companies</li>
+                <li>Environmental consulting firms</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ OPERATIONS / MAP ══ -->
+    <section class="operations">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">05</span>
+          <span>Operations</span>
+        </div>
+
+        <div class="ops-grid">
+          <div class="ops-left">
+            <h2 class="section-headline split-text">
+              We operate<br />
+              <em class="serif-accent">everywhere, remotely</em>
+            </h2>
+            <p class="body-text fade-up">
+              Our team is based in Kenya but our work has no geographic limits. We have delivered geospatial projects for clients across Africa, Europe, the Middle East, and beyond — all remotely.
+            </p>
+
+            <div class="ops-countries">
+              <div class="ops-country fade-up">
+                <div class="ops-country-header">
+                  <i class="bi bi-globe2"></i>
+                  <strong>Africa</strong>
+                </div>
+                <div class="ops-tags"><span>Land</span><span>Urban</span><span>Agriculture</span><span>Environment</span></div>
+                <p>GIS analysis, cadastral mapping, and remote sensing projects across East, West, and Central Africa.</p>
+              </div>
+              <div class="ops-country fade-up">
+                <div class="ops-country-header">
+                  <i class="bi bi-globe"></i>
+                  <strong>Middle East &amp; Asia</strong>
+                </div>
+                <div class="ops-tags"><span>Infrastructure</span><span>Web GIS</span></div>
+                <p>Spatial data infrastructure and web GIS platforms for infrastructure and urban development clients.</p>
+              </div>
+              <div class="ops-country fade-up">
+                <div class="ops-country-header">
+                  <i class="bi bi-globe2"></i>
+                  <strong>Europe &amp; Americas</strong>
+                </div>
+                <div class="ops-tags"><span>Remote Sensing</span><span>Cartography</span></div>
+                <p>Remote sensing analysis and custom cartographic outputs for research institutions and NGOs.</p>
+              </div>
+              <div class="ops-country fade-up">
+                <div class="ops-country-header">
+                  <i class="bi bi-cloud"></i>
+                  <strong>Anywhere</strong>
+                </div>
+                <div class="ops-tags"><span>Cloud GIS</span><span>Online Delivery</span></div>
+                <p>If you have spatial data or a mapping challenge, we can work with you — regardless of your location.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: animated live-data panel -->
+          <div class="ops-right fade-up">
+            <div class="ops-panel">
+              <div class="ops-panel-header">
+                <span class="ops-pulse"></span>
+                <span class="ops-panel-label">Live · Remote Operations</span>
+              </div>
+              <div class="ops-metrics">
+                <div class="ops-metric">
+                  <span class="ops-metric-val" data-count="47">0</span>
+                  <span class="ops-metric-key">Projects delivered</span>
+                </div>
+                <div class="ops-metric">
+                  <span class="ops-metric-val" data-count="18">0</span>
+                  <span class="ops-metric-key">Countries reached</span>
+                </div>
+                <div class="ops-metric">
+                  <span class="ops-metric-val" data-count="100">0</span>
+                  <span class="ops-metric-key">% Remote delivery</span>
+                </div>
+              </div>
+              <div class="ops-stream" id="opsStream">
+                <div class="ops-stream-row"><span class="stream-dot stream-green"></span><span class="stream-text">Topographic survey · <em>UK Client</em></span><span class="stream-time">just now</span></div>
+                <div class="ops-stream-row"><span class="stream-dot stream-blue"></span><span class="stream-text">NDVI analysis · <em>East Africa</em></span><span class="stream-time">2m ago</span></div>
+                <div class="ops-stream-row"><span class="stream-dot stream-gold"></span><span class="stream-text">Web GIS portal · <em>Middle East</em></span><span class="stream-time">5m ago</span></div>
+                <div class="ops-stream-row"><span class="stream-dot stream-green"></span><span class="stream-text">Cadastral mapping · <em>West Africa</em></span><span class="stream-time">9m ago</span></div>
+                <div class="ops-stream-row"><span class="stream-dot stream-blue"></span><span class="stream-text">Flood risk model · <em>South Asia</em></span><span class="stream-time">14m ago</span></div>
+              </div>
+              <div class="ops-coord-live">
+                <i class="bi bi-geo-alt"></i>
+                <span id="opsCoord">−1.2921° S, 36.8219° E</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════ PORTFOLIO ══ -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">07</span>
+          <span>Selected Projects</span>
+        </div>
+
+        <div class="portfolio-head">
+          <h2 class="section-headline split-text">
+            Work that<br />
+            <em class="serif-accent">speaks for itself</em>
+          </h2>
+          <p class="body-text fade-up">A curated selection of GIS analysis, remote sensing, and web mapping projects delivered entirely remotely for clients worldwide.</p>
+        </div>
+
+        <div class="proj-list-full">
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=200&q=80" alt="Flood Risk" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">Remote Sensing</span>
+              <h3>Urban Flood Risk Prediction</h3>
+              <p>ML-integrated Sentinel-1 SAR analysis for flood-prone zone mapping across Nairobi. Delivered as a GIS-ready risk layer with report.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=200&q=80" alt="Spatial Analysis" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">GIS Analysis</span>
+              <h3>Multi-Criteria Land Suitability</h3>
+              <p>Weighted overlay spatial analysis for agricultural land classification across 3 counties. Includes suitability maps and methodology report.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=200&q=80" alt="Web GIS" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">Web GIS</span>
+              <h3>Infrastructure Monitoring Dashboard</h3>
+              <p>Real-time web mapping platform for road network monitoring and asset management. Built with Leaflet, GeoServer, and PostgreSQL/PostGIS.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=200&q=80" alt="GEE" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">Remote Sensing</span>
+              <h3>NDVI Time-Series Analysis (GEE)</h3>
+              <p>10-year vegetation change detection and trend analysis using Google Earth Engine. Delivered as time-series charts and annual raster outputs.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1569428034239-f9565e32e224?auto=format&fit=crop&w=200&q=80" alt="Spatial Analysis" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">GIS Analysis</span>
+              <h3>Urban Growth Mapping &amp; Atlas</h3>
+              <p>Comprehensive cartographic atlas documenting urban expansion patterns over 30 years using Landsat time-series and change detection.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+
+          <div class="proj-row fade-up">
+            <div class="proj-row-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=200&q=80" alt="Data Analysis" loading="lazy" /></div>
+            <div class="proj-row-body">
+              <span class="proj-tag">Data Visualization</span>
+              <h3>Spatial Data Analytics Platform</h3>
+              <p>Python and R-based spatial analytics pipeline with automated reporting, interactive charts, and dashboard export for stakeholder briefings.</p>
+            </div>
+            <a href="#contact" class="proj-row-arrow"><i class="bi bi-arrow-up-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose"><i class="bi bi-x-lg"></i></button>
+      <div class="lightbox-inner">
+        <img src="" alt="" id="lightboxImg" />
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ CONTACT ══ -->
+    <section class="contact" id="contact">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">07</span>
+          <span>Contact</span>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left info -->
+          <div class="contact-left reveal">
+            <h2 class="section-headline">
+              Start a<br />
+              <em class="serif-accent">conversation.</em>
+            </h2>
+            <p class="body-text">Whether you are in Nairobi, London, Dubai, or São Paulo — we work with you remotely. Share your project and we will respond within 24 hours.</p>
+
+            <div class="contact-details">
+              <div class="contact-detail">
+                <span class="detail-label">Email</span>
+                <a href="mailto:gisdev67@gmail.com">gisdev67@gmail.com</a>
+              </div>
+              <div class="contact-detail">
+                <span class="detail-label">Phone</span>
+                <a href="tel:+254719576228">+254 719 576 228</a>
+              </div>
+              <div class="contact-detail">
+                <span class="detail-label">Based in</span>
+                <span>Nairobi, Kenya — serving clients globally</span>
+              </div>
+              <div class="contact-detail">
+                <span class="detail-label">Delivery</span>
+                <span>100% Remote · Worldwide</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right form -->
+          <div class="contact-right reveal reveal-d1">
+            <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="bot-field" style="display:none" />
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fname">First name</label>
+                  <input type="text" id="fname" name="fname" placeholder="Your first name" required />
+                </div>
+                <div class="form-group">
+                  <label for="org">Organisation</label>
+                  <input type="text" id="org" name="organisation" placeholder="Your organisation" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                  <option value="">General enquiry</option>
+                  <option>GIS Mapping &amp; Spatial Analysis</option>
+                  <option>Land Surveying</option>
+                  <option>Web GIS Development</option>
+                  <option>Remote Sensing &amp; Satellite Data</option>
+                  <option>Data Visualization &amp; Cartography</option>
+                  <option>Other / Multiple Services</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, timeline, and location..."></textarea>
+              </div>
+              <div class="form-consent">
+                <input type="checkbox" id="consent" name="consent" />
+                <label for="consent">I agree to be contacted by GeoHuB and to the processing of my personal data as described in our privacy policy.</label>
+              </div>
+              <button type="submit" class="btn-submit">
+                Send Message
+                <i class="bi bi-send"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════ FOOTER ══ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/GeoHUB.svg" alt="GeoHuB" class="nav-logo-icon" />
+          <span class="brand-name">GeoHuB | The Spatial Network</span>
+        </div>
+        <div class="footer-tagline">
+          Global geospatial solutions, delivered remotely.
+        </div>
+      </div>
+
+      <div class="footer-mid">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">GIS Mapping &amp; Analysis</a></li>
+            <li><a href="#services">Land Surveying</a></li>
+            <li><a href="#services">Web GIS Development</a></li>
+            <li><a href="#services">Remote Sensing</a></li>
+            <li><a href="#services">Data Visualization</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#approach">Our Approach</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Technologies</h5>
+          <ul>
+            <li><a href="#">ArcGIS &amp; QGIS</a></li>
+            <li><a href="#">PostGIS &amp; Spatial SQL</a></li>
+            <li><a href="#">Google Earth Engine</a></li>
+            <li><a href="#">Mapbox &amp; Leaflet</a></li>
+            <li><a href="#">Python, R &amp; JavaScript</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <div class="footer-social">
+            <a href="https://www.fiverr.com/s/1qyVAb9" target="_blank" rel="noopener">
+              <i class="bi bi-shop"></i> Fiverr Profile
+            </a>
+            <a href="mailto:gisdev67@gmail.com">
+              <i class="bi bi-envelope"></i> gisdev67@gmail.com
+            </a>
+            <a href="tel:+254719576228">
+              <i class="bi bi-telephone"></i> +254 719 576 228
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 GeoHuB|The Spatial Network. All rights reserved.</span>
+        
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  command = "echo 'Static site - no build step needed'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Route /sector to sector.html for clean URLs
+[[redirects]]
+  from   = "/sector"
+  to     = "/sector.html"
+  status = 200
+
+# Handle form submissions
+[[headers]]
+  for = "/"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
