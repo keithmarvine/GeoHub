@@ -4,7 +4,9 @@
       "Bash(ls \"C:/Users/ADMIN/Downloads/CUSTOM Design \\(1000 x 720 px\\) \\(1000 x 750 px\\)/\")",
       "Bash(find . -maxdepth 1 -type f \\\\\\( -name \"*.md\" -o -name \"GeoHUB.svg\" -o -name \".gitignore\" \\\\\\) -exec ls -lh {} \\\\;)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(npx --yes serve -l 3001 .)"
+      "Bash(npx --yes serve -l 3001 .)",
+      "Bash(gh --version)",
+      "Bash(gh auth:*)"
     ]
   }
 }
