@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Confirmation page — no search value, and we don't want it
+# appearing in results ahead of the pages that convert.
+Disallow: /thank-you
+Disallow: /thank-you.html
+
+Sitemap: https://geohub-spatial-network.netlify.app/sitemap.xml

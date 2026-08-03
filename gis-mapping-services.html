@@ -1,0 +1,392 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Stamps <html class="js"> so CSS can safely hide content for animation.
+       Without it, conversion.css keeps everything visible. Must stay inline
+       and before the stylesheets to avoid a flash of unstyled content. -->
+  <script>document.documentElement.className += " js";</script>
+  <title>GIS Mapping &amp; Spatial Analysis Services | Remote GIS Consultant — GeoHuB</title>
+  <meta name="description" content="Professional GIS mapping and spatial analysis services delivered remotely. Thematic mapping, suitability modelling, geoprocessing and cartography in ArcGIS, QGIS and PostGIS." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#162035" />
+  <link rel="canonical" href="https://geohub-spatial-network.netlify.app/gis-mapping-services" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="GeoHuB | The Spatial Network" />
+  <meta property="og:url" content="https://geohub-spatial-network.netlify.app/gis-mapping-services" />
+  <meta property="og:title" content="GIS Mapping &amp; Spatial Analysis Services | Remote GIS Consultant" />
+  <meta property="og:description" content="Thematic mapping, suitability modelling, geoprocessing and cartography — delivered remotely in ArcGIS, QGIS and PostGIS." />
+  <meta property="og:image" content="https://geohub-spatial-network.netlify.app/web_mapping.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <link rel="icon" type="image/svg+xml" href="/GeoHUB.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="conversion.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "GIS Mapping & Spatial Analysis Services",
+        "serviceType": "Thematic mapping, spatial modelling, geoprocessing and cartography",
+        "description": "Professional GIS mapping and spatial analysis delivered remotely — thematic and reference mapping, suitability and site selection modelling, geoprocessing, spatial database design and publication-quality cartography.",
+        "url": "https://geohub-spatial-network.netlify.app/gis-mapping-services",
+        "provider": { "@id": "https://geohub-spatial-network.netlify.app/#organization" },
+        "areaServed": ["Kenya", "East Africa", "Africa", "Middle East", "Europe", "Americas"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://geohub-spatial-network.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://geohub-spatial-network.netlify.app/#services" },
+          { "@type": "ListItem", "position": 3, "name": "GIS Mapping & Spatial Analysis", "item": "https://geohub-spatial-network.netlify.app/gis-mapping-services" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What GIS software do you work in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Primarily ArcGIS Pro, QGIS and PostGIS, with Python and R for automation and statistical analysis, and Google Earth Engine for large-scale satellite processing. We deliver in whichever ecosystem your team already uses so the outputs stay editable after handover."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you work with the data we already have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, and it is usually the fastest route. We routinely take messy shapefiles, spreadsheets with coordinates, scanned maps, CAD drawings and legacy databases and turn them into a clean, correctly projected, documented spatial dataset."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide the underlying data or just the map?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both, unless you specify otherwise. You receive the finished cartographic output and the underlying GIS layers in an editable format, so your team can extend the work without coming back to us."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you sign NDAs before receiving project data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Attach your NDA to your first message and we will sign it before you send anything sensitive. Client data is used only for the project it was supplied for and is never published as portfolio material without written permission."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="subpage">
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-bar">
+      <a href="/" class="nav-brand">
+        <img src="/GeoHUB.svg" alt="GeoHuB logo mark" class="nav-logo-icon" width="32" height="32" />
+        <span class="brand-name">GeoHuB | The Spatial Network</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#services" class="nav-link">Expertise</a></li>
+        <li><a href="/#process" class="nav-link">How We Work</a></li>
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/#portfolio" class="nav-link">Projects</a></li>
+        <li><a href="/#faq" class="nav-link">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn-cta">Get a Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-overlay" id="mobile-overlay">
+    <ul class="mob-nav-links">
+      <li><a href="/#services"  class="mob-link">Expertise</a></li>
+      <li><a href="/#process"   class="mob-link">How We Work</a></li>
+      <li><a href="/#about"     class="mob-link">About</a></li>
+      <li><a href="/#portfolio" class="mob-link">Projects</a></li>
+      <li><a href="/#faq"       class="mob-link">FAQ</a></li>
+      <li><a href="/#contact"   class="mob-link">Contact</a></li>
+    </ul>
+    <a href="/#contact" class="btn-mob-cta mob-link">Get a Free Quote →</a>
+    <a href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20need%20GIS%20mapping%20or%20spatial%20analysis." class="btn-mob-wa" target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp us
+    </a>
+  </div>
+
+  <main>
+
+    <section class="sub-hero">
+      <div class="sub-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1569428034239-f9565e32e224?auto=format&amp;fit=crop&amp;w=1800&amp;q=80')"></div>
+      <div class="sub-hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <i class="bi bi-chevron-right"></i>
+          <a href="/#services">Services</a>
+          <i class="bi bi-chevron-right"></i>
+          <span>GIS Mapping &amp; Spatial Analysis</span>
+        </nav>
+        <h1>GIS Mapping &amp; Spatial Analysis</h1>
+        <p class="sub-hero-tagline">
+          Thematic mapping, suitability modelling, geoprocessing and publication-quality
+          cartography — delivered remotely, in the software your team already uses.
+        </p>
+        <div class="sub-hero-ctas">
+          <a href="/#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+          <a class="btn-outline-white" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20need%20GIS%20mapping%20or%20spatial%20analysis." target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> WhatsApp us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sub-section">
+      <div class="sub-inner">
+        <div class="sub-intro">
+          <div>
+            <h2>Analysis that answers the question you actually asked</h2>
+            <p>
+              Most organisations sitting on spatial data are not short of maps. They are short of
+              answers: where should this go, what changed since last year, which sites qualify,
+              what is exposed if the river rises.
+            </p>
+            <p>
+              We build the datasets and the models that turn that data into a defensible answer —
+              and we document the method, so the result holds up when someone senior asks how you
+              arrived at it.
+            </p>
+            <p>
+              Work is delivered in ArcGIS Pro, QGIS and PostGIS, with Python and R where automation
+              or statistical rigour is needed. You receive the finished cartography <em>and</em> the
+              underlying layers in an editable format, so your team can extend the work without
+              coming back to us.
+            </p>
+            <ul class="highlight-list">
+              <li><i class="bi bi-check-lg"></i> Thematic, reference and statistical mapping</li>
+              <li><i class="bi bi-check-lg"></i> Multi-criteria suitability and site selection models</li>
+              <li><i class="bi bi-check-lg"></i> Proximity, network and accessibility analysis</li>
+              <li><i class="bi bi-check-lg"></i> Spatial database design in PostGIS</li>
+              <li><i class="bi bi-check-lg"></i> Data cleaning, projection and georeferencing</li>
+              <li><i class="bi bi-check-lg"></i> Print-ready cartography for reports and tenders</li>
+            </ul>
+          </div>
+          <img class="sub-intro-img" loading="lazy" width="1775" height="923"
+               src="web_mapping.jpg"
+               alt="Interactive web GIS interface displaying analysed spatial data layers" />
+        </div>
+      </div>
+    </section>
+
+    <section class="sub-section alt">
+      <div class="sub-inner">
+        <div class="section-label">
+          <span class="label-num">01</span>
+          <span>What We Deliver</span>
+        </div>
+        <div class="sub-services">
+          <article class="sub-service-card">
+            <i class="bi bi-map"></i>
+            <h3>Thematic &amp; Statistical Mapping</h3>
+            <p>Choropleth, graduated symbol, density and categorical maps built on properly normalised data and classified honestly — for reports, tenders, publications and board packs.</p>
+            <div class="sub-tags"><span>ArcGIS Pro</span><span>QGIS</span><span>Cartography</span><span>Print PDF</span></div>
+          </article>
+          <article class="sub-service-card">
+            <i class="bi bi-diagram-3"></i>
+            <h3>Suitability &amp; Site Selection</h3>
+            <p>Multi-criteria decision analysis combining terrain, access, land use, environmental and regulatory constraints into a weighted, documented and defensible ranking.</p>
+            <div class="sub-tags"><span>MCDA</span><span>Weighted Overlay</span><span>AHP</span></div>
+          </article>
+          <article class="sub-service-card">
+            <i class="bi bi-database"></i>
+            <h3>Spatial Data Engineering</h3>
+            <p>Cleaning, reprojecting, georeferencing and structuring messy spatial data into a documented PostGIS database your team can query, extend and trust.</p>
+            <div class="sub-tags"><span>PostGIS</span><span>Spatial SQL</span><span>Python</span><span>ETL</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sub-section">
+      <div class="sub-inner">
+        <div class="section-label">
+          <span class="label-num">02</span>
+          <span>Common Questions</span>
+        </div>
+
+        <div class="faq-layout">
+          <div class="faq-intro">
+            <h2 class="section-headline">Practical<br /><em class="serif-accent">questions.</em></h2>
+            <p class="body-text">If yours is not here, ask it directly — every enquiry is answered personally, usually the same working day.</p>
+            <a href="/#contact" class="btn-gold">Ask your question <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>What GIS software do you work in?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Primarily ArcGIS Pro, QGIS and PostGIS, with Python and R for automation and statistical analysis, and Google Earth Engine for large-scale satellite processing.</p>
+                <p>We deliver in whichever ecosystem your team already uses, so the outputs remain editable after handover rather than locking you into ours.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Can you work with the data we already have?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Yes, and it is usually the fastest and cheapest route. We routinely take messy shapefiles, spreadsheets with coordinates in inconsistent formats, scanned paper maps, CAD drawings and legacy databases, and turn them into a clean, correctly projected, documented spatial dataset.</p>
+                <p>Send a sample and we will tell you honestly what is usable and what is not before you commit.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Do you provide the underlying data or just the map?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Both, unless you specify otherwise. You receive the finished cartographic output and the underlying GIS layers in an editable format — typically SHP, GeoJSON, GeoPackage or a PostGIS dump.</p>
+                <p>We also document the method and any assumptions, so the analysis can be defended, audited or repeated later.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Do you sign NDAs before receiving project data?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Yes. Attach your NDA to your first message and we will sign it before you send anything sensitive.</p>
+                <p>Client data is used only for the project it was supplied for, is not shared with third parties, and is never published as portfolio material without written permission.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Can you work as an extension of our in-house GIS team?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Yes — a good share of our work is overflow capacity for teams that are already competent but short on hours during a busy period or a bid.</p>
+                <p>We can work to your existing style guides, layer naming conventions, templates and coordinate systems so the output is indistinguishable from work produced internally.</p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-related">
+          <a href="/land-surveying-kenya">Land surveying in Kenya <i class="bi bi-arrow-right"></i></a>
+          <a href="/environment-agriculture">Environment &amp; Agriculture <i class="bi bi-arrow-right"></i></a>
+          <a href="/urban-planning">Urban Planning &amp; GIS <i class="bi bi-arrow-right"></i></a>
+          <a href="/disaster-risk">Disaster Risk &amp; Climate <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Have a spatial question<br /><em class="serif-accent">that needs answering?</em></h2>
+      <p>Describe it in plain language. Within 24 hours you will have a written approach, a timeline and a fixed price — free, and with no obligation to go ahead.</p>
+      <div class="final-cta-actions">
+        <a href="/#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+        <a class="btn-outline-white" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20need%20GIS%20mapping%20or%20spatial%20analysis." target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> WhatsApp us
+        </a>
+      </div>
+      <span class="final-cta-note">Typically answered the same working day · Nairobi, Kenya (EAT)</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/GeoHUB.svg" alt="GeoHuB" class="nav-logo-icon" width="32" height="32" />
+          <span class="brand-name">GeoHuB | The Spatial Network</span>
+        </div>
+        <div class="footer-tagline">Global geospatial solutions, delivered remotely.</div>
+      </div>
+      <div class="footer-mid">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/gis-mapping-services">GIS Mapping &amp; Spatial Analysis</a></li>
+            <li><a href="/land-surveying-kenya">Land Surveying in Kenya</a></li>
+            <li><a href="/#services">Web GIS Development</a></li>
+            <li><a href="/#services">Remote Sensing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Sectors</h5>
+          <ul>
+            <li><a href="/land-infrastructure">Land &amp; Infrastructure</a></li>
+            <li><a href="/environment-agriculture">Environment &amp; Agriculture</a></li>
+            <li><a href="/urban-planning">Urban Planning &amp; GIS</a></li>
+            <li><a href="/disaster-risk">Disaster Risk &amp; Climate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/#approach">Our Approach</a></li>
+            <li><a href="/#process">How We Work</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <div class="footer-social">
+            <a href="https://wa.me/254701644626" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:gisdev67@gmail.com"><i class="bi bi-envelope"></i> gisdev67@gmail.com</a>
+            <a href="tel:+254719576228"><i class="bi bi-telephone"></i> +254 719 576 228</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 GeoHuB | The Spatial Network. All rights reserved.</span>
+        <span>Nairobi, Kenya — serving clients worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20need%20GIS%20mapping%20or%20spatial%20analysis." target="_blank" rel="noopener" aria-label="Chat with GeoHuB on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span class="wa-float-label">Chat with us</span>
+  </a>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a class="sc-wa" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20need%20GIS%20mapping%20or%20spatial%20analysis." target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp
+    </a>
+    <a class="sc-quote" href="/#contact">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+  <script defer src="main.js"></script>
+</body>
+</html>

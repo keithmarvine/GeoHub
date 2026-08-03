@@ -1,11 +1,35 @@
-<!DOCTYPE html>
+?<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GeoHuB | The Spatial Network</title>
-  <meta name="description" content="GeoHuB | The Spatial Network. Global geospatial solutions delivered remotely. GIS mapping, land surveying, spatial analysis, remote sensing, and web GIS development for clients worldwide." />
-  <meta name="keywords" content="GIS, geomatics, remote GIS services, global mapping, spatial analysis, remote sensing, web GIS, cartography, online surveying" />
+  <!-- Stamps <html class="js"> so CSS can safely hide content for animation.
+       Without it, conversion.css keeps everything visible. Must stay inline
+       and before the stylesheets to avoid a flash of unstyled content. -->
+  <script>document.documentElement.className += " js";</script>
+  <title>GIS Mapping, Land Surveying &amp; Remote Sensing | GeoHuB Nairobi</title>
+  <meta name="description" content="Remote GIS mapping, land surveying, spatial analysis and web GIS development from Nairobi, Kenya — delivered worldwide. Free project scope and fixed quote within 24 hours." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="GeoHuB | The Spatial Network" />
+  <meta name="theme-color" content="#162035" />
+  <link rel="canonical" href="https://geohub-spatial-network.netlify.app/" />
+
+  <!-- Open Graph — controls the preview when the link is shared on WhatsApp, LinkedIn, Slack -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GeoHuB | The Spatial Network" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="https://geohub-spatial-network.netlify.app/" />
+  <meta property="og:title" content="GIS Mapping, Land Surveying &amp; Remote Sensing | GeoHuB Nairobi" />
+  <meta property="og:description" content="Remote GIS mapping, land surveying, spatial analysis and web GIS development from Nairobi, Kenya — delivered worldwide. Free project scope within 24 hours." />
+  <meta property="og:image" content="https://geohub-spatial-network.netlify.app/web_mapping.jpg" />
+  <meta property="og:image:width" content="1775" />
+  <meta property="og:image:height" content="923" />
+  <meta property="og:image:alt" content="GeoHuB web GIS mapping platform showing spatial data layers" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GIS Mapping, Land Surveying &amp; Remote Sensing | GeoHuB Nairobi" />
+  <meta name="twitter:description" content="Remote geospatial services from Nairobi, delivered worldwide. Free project scope within 24 hours." />
+  <meta name="twitter:image" content="https://geohub-spatial-network.netlify.app/web_mapping.jpg" />
 
   <!-- Fonts: DM Sans (body) + Cormorant Garamond (editorial serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,12 +39,176 @@
   <!-- Bootstrap Icons (CSS font, zero JS) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/GeoHUB.svg" />
   <link rel="shortcut icon" href="/GeoHUB.svg" />
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="conversion.css" />
+
+  <!-- ── Structured data ──────────────────────────────────────
+       LocalBusiness/ProfessionalService is what feeds Google's
+       local pack. Keep NAP (name, address, phone) identical to
+       the Google Business Profile or the signals do not match. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["ProfessionalService", "LocalBusiness"],
+        "@id": "https://geohub-spatial-network.netlify.app/#organization",
+        "name": "GeoHuB | The Spatial Network",
+        "alternateName": "GeoHuB",
+        "url": "https://geohub-spatial-network.netlify.app/",
+        "logo": "https://geohub-spatial-network.netlify.app/GeoHUB.svg",
+        "image": "https://geohub-spatial-network.netlify.app/web_mapping.jpg",
+        "description": "Remote geospatial consultancy delivering GIS mapping, land surveying, spatial analysis, remote sensing and web GIS development from Nairobi, Kenya to clients worldwide.",
+        "email": "gisdev67@gmail.com",
+        "telephone": "+254719576228",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nairobi",
+          "addressRegion": "Nairobi County",
+          "addressCountry": "KE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -1.2921,
+          "longitude": 36.8219
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Kenya" },
+          { "@type": "Place", "name": "East Africa" },
+          { "@type": "Place", "name": "Middle East" },
+          { "@type": "Place", "name": "Europe" },
+          { "@type": "Place", "name": "Americas" }
+        ],
+        "sameAs": ["https://www.fiverr.com/s/1qyVAb9"],
+        "knowsAbout": [
+          "Geographic Information Systems",
+          "Remote Sensing",
+          "Land Surveying",
+          "Cadastral Mapping",
+          "Spatial Analysis",
+          "Web GIS Development",
+          "UAV Photogrammetry",
+          "Google Earth Engine"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Geospatial Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "GIS Mapping & Spatial Analysis",
+                "description": "Thematic mapping, spatial modelling and decision-support analysis using ArcGIS, QGIS and PostGIS.",
+                "url": "https://geohub-spatial-network.netlify.app/gis-mapping-services"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Land Surveying & Cadastral Services",
+                "description": "Topographic, boundary and cadastral surveys including UAV photogrammetry and CAD-ready deliverables.",
+                "url": "https://geohub-spatial-network.netlify.app/land-surveying-kenya"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Remote Sensing & Satellite Data Analysis",
+                "description": "Vegetation indices, land cover classification and change detection using Sentinel, Landsat and Google Earth Engine."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Web GIS Development",
+                "description": "Interactive web mapping platforms, spatial dashboards and enterprise GIS infrastructure using Leaflet, Mapbox and GeoServer."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://geohub-spatial-network.netlify.app/#website",
+        "url": "https://geohub-spatial-network.netlify.app/",
+        "name": "GeoHuB | The Spatial Network",
+        "publisher": { "@id": "https://geohub-spatial-network.netlify.app/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://geohub-spatial-network.netlify.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can you survey my site if you are not physically there?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most of what we do never required a site visit. Spatial analysis, satellite-based mapping, remote sensing and web GIS all run on data we process from Nairobi. Where physical measurement is genuinely required, we work from data captured by a local surveyor or drone operator, including your own team's raw files, and handle the processing, drafting and quality control."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What formats do you deliver in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Whatever your team already works in. Most commonly DWG and DXF for CAD, SHP and GeoJSON for GIS, GeoTIFF for raster and imagery outputs, CSV for coordinate tables, and print-ready PDF for maps and reports."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do payments work, and am I protected?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For direct engagements we work to a milestone structure agreed before anything starts, so you are never paying far ahead of delivered work. If you would rather a third party held the funds, we also take work through our Fiverr profile, which provides escrow and a formal dispute process."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data kept confidential?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Client data is used only for the project it was supplied for, is not shared with third parties, and is not published as portfolio material without written permission. We are happy to sign your NDA before you send anything sensitive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on scope and on how quickly source data can be obtained. Rather than quote a meaningless average, we give you a firm timeline in writing as part of the free scope, before you commit to anything."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which countries do you work in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We are based in Nairobi and deliver remotely across Africa, the Middle East and Asia, Europe and the Americas. Where work must comply with a specific national survey standard, coordinate system or land registry requirement, tell us the jurisdiction and we will confirm up front whether we can meet it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does it cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pricing depends on area, data availability, accuracy requirements and deliverable complexity. Send a brief and you get a fixed written price within 24 hours, free and with no obligation."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -49,15 +237,15 @@
       </a>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="#approach" class="nav-link">Approach</a></li>
         <li><a href="#services" class="nav-link">Expertise</a></li>
+        <li><a href="#process" class="nav-link">How We Work</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#portfolio" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn-cta">Get in Touch</a>
+        <a href="#contact" class="btn-cta">Get a Free Quote</a>
         <button class="hamburger" id="hamburger" aria-label="Menu">
           <span class="ham-line"></span>
           <span class="ham-line"></span>
@@ -69,13 +257,17 @@
   <!-- Mobile Overlay -->
   <div class="mobile-overlay" id="mobile-overlay">
     <ul class="mob-nav-links">
-      <li><a href="#approach"  class="mob-link">Approach</a></li>
       <li><a href="#services"  class="mob-link">Expertise</a></li>
+      <li><a href="#process"   class="mob-link">How We Work</a></li>
       <li><a href="#about"     class="mob-link">About</a></li>
       <li><a href="#portfolio" class="mob-link">Projects</a></li>
+      <li><a href="#faq"       class="mob-link">FAQ</a></li>
       <li><a href="#contact"   class="mob-link">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn-mob-cta mob-link">Get in Touch →</a>
+    <a href="#contact" class="btn-mob-cta mob-link">Get a Free Quote →</a>
+    <a href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project." class="btn-mob-wa" target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp us
+    </a>
   </div>
 
   <main>
@@ -102,25 +294,33 @@
           </div>
 
           <h1 class="hero-headline reveal reveal-d1">
-            Geospatial Solutions,<br />
-            Delivered Remotely<br />
-            <em class="serif-accent">Worldwide.</em>
+            Decision-Ready<br />
+            Geospatial Data,<br />
+            <em class="serif-accent">Delivered Remotely.</em>
           </h1>
 
           <p class="hero-sub reveal reveal-d2">
-            We deliver precision GIS mapping, spatial analysis, remote sensing, and web GIS development to clients across the globe — entirely remotely, with no boundaries.
+            GIS mapping, land surveying, remote sensing and web GIS for engineers, planners,
+            NGOs and government teams — scoped, produced and revised entirely online.
+            Tell us what you need and get a free project scope within 24 hours.
           </p>
 
           <div class="hero-ctas reveal reveal-d3">
-            <a href="#services" class="btn-gold">
-              Our Expertise
+            <a href="#contact" class="btn-gold">
+              Get a Free Project Quote
               <i class="bi bi-arrow-right"></i>
             </a>
-            <a href="#contact" class="btn-outline-white">
-              Get in Touch
+            <a href="#portfolio" class="btn-outline-white">
+              See Our Work
               <i class="bi bi-arrow-up-right"></i>
             </a>
           </div>
+
+          <ul class="hero-assurances reveal reveal-d3">
+            <li><i class="bi bi-check2"></i> Free scope &amp; quote</li>
+            <li><i class="bi bi-check2"></i> Reply within 24 hours</li>
+            <li><i class="bi bi-check2"></i> No obligation</li>
+          </ul>
         </div>
 
         <!-- Right: D3 Globe -->
@@ -167,6 +367,40 @@
           <span>Global Delivery</span><span class="tick-dot">·</span>
           <span>Remote Solutions</span><span class="tick-dot">·</span>
           <span>Cloud GIS</span><span class="tick-dot">·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ TRUST BAR ══ -->
+    <section class="trust-bar" aria-label="Why clients work with GeoHuB">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <i class="bi bi-laptop"></i>
+          <div>
+            <strong>100% remote delivery</strong>
+            <span>No site visit required to get started</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-clock-history"></i>
+          <div>
+            <strong>24-hour response</strong>
+            <span>Every enquiry answered by a real analyst</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-globe-americas"></i>
+          <div>
+            <strong>Nairobi-based, globally delivered</strong>
+            <span>Africa, the Gulf, Europe and the Americas</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-files"></i>
+          <div>
+            <strong>Deliverables in your format</strong>
+            <span>DWG, SHP, GeoTIFF, GeoJSON, PDF</span>
+          </div>
         </div>
       </div>
     </section>
@@ -274,11 +508,25 @@
 
         </div>
 
+        <!-- Conversion point after the service list -->
+        <div class="cta-band reveal">
+          <div class="cta-band-text">
+            <h3>Not sure which of these you need?</h3>
+            <p>Describe the problem in plain language. We will tell you what the work involves, what it costs, and whether we are the right people for it.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+            <a class="btn-whatsapp-inline" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project." target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════ SECTORS ══ -->
-    <section class="sectors">
+    <section class="sectors" id="sectors">
       <div class="section-inner">
 
         <div class="section-label">
@@ -291,7 +539,7 @@
         </h2>
 
         <div class="sectors-grid" id="sectors">
-          <a href="sector.html?id=land-infrastructure" class="sector-card reveal" style="--img: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=900&q=80')">
+          <a href="/land-infrastructure" class="sector-card reveal" style="--img: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?auto=format&fit=crop&w=900&q=80')">
             <div class="sector-img"></div>
             <div class="sector-body">
               <h4>Land &amp; Infrastructure</h4>
@@ -299,7 +547,7 @@
               <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
             </div>
           </a>
-          <a href="sector.html?id=environment-agriculture" class="sector-card reveal reveal-d1" style="--img: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80')">
+          <a href="/environment-agriculture" class="sector-card reveal reveal-d1" style="--img: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80')">
             <div class="sector-img"></div>
             <div class="sector-body">
               <h4>Environment &amp; Agriculture</h4>
@@ -307,7 +555,7 @@
               <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
             </div>
           </a>
-          <a href="sector.html?id=urban-planning" class="sector-card reveal reveal-d2" style="--img: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80')">
+          <a href="/urban-planning" class="sector-card reveal reveal-d2" style="--img: url('https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=900&q=80')">
             <div class="sector-img"></div>
             <div class="sector-body">
               <h4>Urban Planning &amp; GIS</h4>
@@ -315,7 +563,7 @@
               <span class="sector-link">Explore sector <i class="bi bi-arrow-up-right"></i></span>
             </div>
           </a>
-          <a href="sector.html?id=disaster-risk" class="sector-card reveal reveal-d3" style="--img: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80')">
+          <a href="/disaster-risk" class="sector-card reveal reveal-d3" style="--img: url('https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80')">
             <div class="sector-img"></div>
             <div class="sector-body">
               <h4>Disaster Risk &amp; Climate</h4>
@@ -586,6 +834,231 @@
       </div>
     </div>
 
+    <!-- ══════════════════════════════════════════ PROCESS ══ -->
+    <!-- Removes the main objection to hiring a remote provider:
+         "how does this actually work if you're not here?" -->
+    <section class="process" id="process">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">08</span>
+          <span>How We Work</span>
+        </div>
+
+        <div class="process-head">
+          <h2 class="section-headline reveal">
+            Remote delivery,<br />
+            <em class="serif-accent">without the guesswork.</em>
+          </h2>
+          <p class="body-text reveal reveal-d1">
+            Working with a team you have never met should not feel like a risk. Here is exactly
+            how a GeoHuB project runs, from first message to final files.
+          </p>
+        </div>
+
+        <ol class="process-steps">
+          <li class="process-step reveal">
+            <span class="ps-num">01</span>
+            <h3>You send the brief</h3>
+            <p>A short description of the problem, the area of interest, and the format you need. If you are unsure what to ask for, say so — scoping the work properly is our job, not yours.</p>
+          </li>
+          <li class="process-step reveal reveal-d1">
+            <span class="ps-num">02</span>
+            <h3>We scope and quote — free</h3>
+            <p>Within 24 hours you receive a written approach: the method, the data sources, the deliverables, the timeline, and a fixed price. No obligation and no charge for this stage.</p>
+          </li>
+          <li class="process-step reveal reveal-d2">
+            <span class="ps-num">03</span>
+            <h3>We produce the work</h3>
+            <p>Analysis runs on satellite, survey and open data using ArcGIS, QGIS, PostGIS and Google Earth Engine. You get progress updates at agreed checkpoints, not silence until the deadline.</p>
+          </li>
+          <li class="process-step reveal reveal-d3">
+            <span class="ps-num">04</span>
+            <h3>You review, we revise</h3>
+            <p>Deliverables arrive in the formats your team already uses — DWG, SHP, GeoTIFF, GeoJSON or print-ready PDF. Revisions are part of the scope, not an upsell.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════ TESTIMONIALS ══ -->
+    <!--
+      ┌──────────────────────────────────────────────────────────────────┐
+      │  KEITH — READ THIS.                                              │
+      │                                                                  │
+      │  These three cards are PLACEHOLDERS. Nothing here is a real      │
+      │  quote and none of it should go live as-is.                      │
+      │                                                                  │
+      │  To fill them, send over for each client:                        │
+      │    1. The quote text (Fiverr review text is perfect)             │
+      │    2. First name or initials                                     │
+      │    3. Country                                                    │
+      │    4. Project type — e.g. "Topographic survey, 40 ha"            │
+      │                                                                  │
+      │  Then delete the .is-placeholder class and the notice below.     │
+      │  See LEADS-SETUP.md for the full instructions.                   │
+      │                                                                  │
+      │  Until then, either fill them in or delete this whole section —  │
+      │  do not publish invented testimonials.                           │
+      └──────────────────────────────────────────────────────────────────┘
+    -->
+    <section class="testimonials is-placeholder" id="testimonials">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">09</span>
+          <span>Client Feedback</span>
+        </div>
+
+        <div class="placeholder-notice">
+          <i class="bi bi-exclamation-triangle"></i>
+          <div>
+            <strong>Placeholder section — not for publication.</strong>
+            Replace the three cards below with real client quotes before this goes live,
+            or delete the section entirely. Instructions in <code>LEADS-SETUP.md</code>.
+          </div>
+        </div>
+
+        <h2 class="section-headline reveal">
+          What clients<br />
+          <em class="serif-accent">say about the work.</em>
+        </h2>
+
+        <div class="testimonial-grid">
+          <figure class="testimonial-card reveal">
+            <i class="bi bi-quote tq"></i>
+            <blockquote><p>[ QUOTE 1 — paste the client's own words here. Two or three sentences is ideal. Specific beats glowing: "delivered the contours in the CAD format our engineers needed" lands harder than "great service". ]</p></blockquote>
+            <figcaption>
+              <span class="t-name">[ First name or initials ]</span>
+              <span class="t-meta">[ Country ] · [ Project type ]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal reveal-d1">
+            <i class="bi bi-quote tq"></i>
+            <blockquote><p>[ QUOTE 2 — ideally from a different service line to quote 1, so the three cards cover a spread of your work rather than the same job three times. ]</p></blockquote>
+            <figcaption>
+              <span class="t-name">[ First name or initials ]</span>
+              <span class="t-meta">[ Country ] · [ Project type ]</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial-card reveal reveal-d2">
+            <i class="bi bi-quote tq"></i>
+            <blockquote><p>[ QUOTE 3 — if a client mentioned turnaround, accuracy or communication, use that one. Those are the three things prospects are quietly worried about. ]</p></blockquote>
+            <figcaption>
+              <span class="t-name">[ First name or initials ]</span>
+              <span class="t-meta">[ Country ] · [ Project type ]</span>
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═════════════════════════════════════════════ FAQ ══ -->
+    <section class="faq-section" id="faq">
+      <div class="section-inner">
+
+        <div class="section-label">
+          <span class="label-num">10</span>
+          <span>Questions</span>
+        </div>
+
+        <div class="faq-layout">
+          <div class="faq-intro reveal">
+            <h2 class="section-headline">
+              Before you<br />
+              <em class="serif-accent">get in touch.</em>
+            </h2>
+            <p class="body-text">The things clients ask us most often. If yours is not here, ask it directly — we answer every enquiry personally.</p>
+            <a href="#contact" class="btn-gold">Ask your question <i class="bi bi-arrow-right"></i></a>
+          </div>
+
+          <div class="faq-list reveal reveal-d1">
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>How can you survey my site if you are not physically there?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Most of what we do never required a site visit in the first place. Spatial analysis, satellite-based mapping, remote sensing and web GIS all run on data — imagery, existing survey records, open datasets — that we process from Nairobi.</p>
+                <p>Where physical measurement genuinely is required, we work from data captured by a local surveyor or drone operator, including your own team's raw files, and handle the processing, drafting and quality control. You get the same deliverable without paying to fly anyone anywhere.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>What formats do you deliver in?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Whatever your team already works in. Most commonly DWG and DXF for CAD, SHP and GeoJSON for GIS, GeoTIFF for raster and imagery outputs, CSV for coordinate tables, and print-ready PDF for maps and reports.</p>
+                <p>Tell us the software at the other end and we will match it. If you need a format not listed here, ask.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>How do payments work, and am I protected?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>For direct engagements we typically work to a milestone structure agreed before anything starts — so you are never paying far ahead of delivered work.</p>
+                <p>If you would rather have a third party hold the funds, we also take work through our Fiverr profile, which provides escrow and a formal dispute process. Some clients prefer that for a first project, and that is entirely reasonable.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Is my data kept confidential?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Yes. Client data is used only for the project it was supplied for, is not shared with third parties, and is not published or reused as portfolio material without written permission.</p>
+                <p>We are happy to sign your NDA before you send anything sensitive — just attach it to your first message.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>How long does a project take?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>It depends entirely on scope and on how quickly source data can be obtained — a single-parcel boundary plan and a multi-year land cover change analysis are not comparable pieces of work.</p>
+                <p>Rather than quote an average that would mean nothing, we give you a firm timeline in writing as part of the free scope, before you commit to anything.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Which countries do you work in?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>We are based in Nairobi and deliver remotely across Africa, the Middle East and Asia, Europe and the Americas.</p>
+                <p>Where work must comply with a specific national survey standard, coordinate system or land registry requirement, tell us the jurisdiction in your first message and we will confirm up front whether we can meet it — before you spend money finding out.</p>
+              </div></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>What does it cost?</span>
+                <i class="bi bi-plus-lg"></i>
+              </button>
+              <div class="faq-a"><div class="faq-a-inner">
+                <p>Pricing depends on area, data availability, accuracy requirements and deliverable complexity, so we do not publish a rate card that would be wrong for most projects.</p>
+                <p>Send a brief and you get a fixed written price within 24 hours, free and with no obligation. If your budget and the work are not a match, we will tell you that plainly rather than stretch the scope.</p>
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ══════════════════════════════════════════ CONTACT ══ -->
     <section class="contact" id="contact">
       <div class="section-inner">
@@ -599,10 +1072,26 @@
           <!-- Left info -->
           <div class="contact-left reveal">
             <h2 class="section-headline">
-              Start a<br />
-              <em class="serif-accent">conversation.</em>
+              Get your free<br />
+              <em class="serif-accent">project scope.</em>
             </h2>
-            <p class="body-text">Whether you are in Nairobi, London, Dubai, or São Paulo — we work with you remotely. Share your project and we will respond within 24 hours.</p>
+            <p class="body-text">
+              Tell us what you need mapped, analysed or built. Within 24 hours you get a written
+              approach, a timeline and a fixed price — free, with no obligation to proceed.
+            </p>
+            <p class="body-text">
+              Not ready for a full brief? Send two lines and we will ask the right questions.
+              Nairobi, London, Dubai or São Paulo — the process is the same.
+            </p>
+
+            <a class="btn-whatsapp-block" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project." target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i>
+              <span>
+                <strong>Prefer to chat?</strong>
+                Message us on WhatsApp
+              </span>
+              <i class="bi bi-arrow-right wa-arrow"></i>
+            </a>
 
             <div class="contact-details">
               <div class="contact-detail">
@@ -627,48 +1116,114 @@
 
           <!-- Right form -->
           <div class="contact-right reveal reveal-d1">
-            <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
+            <form id="contactForm" name="contact" method="POST" action="/thank-you"
+                  data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" style="display:none" />
+              <p class="hp-field"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
               <div class="form-row">
                 <div class="form-group">
-                  <label for="fname">First name</label>
-                  <input type="text" id="fname" name="fname" placeholder="Your first name" required />
+                  <label for="fname">Your name <span class="req">*</span></label>
+                  <input type="text" id="fname" name="fname" placeholder="Your first name" autocomplete="given-name" required />
                 </div>
                 <div class="form-group">
                   <label for="org">Organisation</label>
-                  <input type="text" id="org" name="organisation" placeholder="Your organisation" />
+                  <input type="text" id="org" name="organisation" placeholder="Company or institution" autocomplete="organization" />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject">
-                  <option value="">General enquiry</option>
-                  <option>GIS Mapping &amp; Spatial Analysis</option>
-                  <option>Land Surveying</option>
-                  <option>Web GIS Development</option>
-                  <option>Remote Sensing &amp; Satellite Data</option>
-                  <option>Data Visualization &amp; Cartography</option>
-                  <option>Other / Multiple Services</option>
-                </select>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" autocomplete="tel" />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="subject">Service needed</label>
+                  <select id="subject" name="subject">
+                    <option value="">General enquiry</option>
+                    <option>GIS Mapping &amp; Spatial Analysis</option>
+                    <option>Land Surveying &amp; Cadastral</option>
+                    <option>Web GIS Development</option>
+                    <option>Remote Sensing &amp; Satellite Data</option>
+                    <option>Data Visualization &amp; Cartography</option>
+                    <option>Other / Multiple Services</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="location">Project location</label>
+                  <input type="text" id="location" name="location" placeholder="Country or region" autocomplete="country-name" />
+                </div>
               </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, timeline, and location..."></textarea>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="timeline">Timeline</label>
+                  <select id="timeline" name="timeline">
+                    <option value="">Not sure yet</option>
+                    <option>Urgent — this week</option>
+                    <option>Within 1–4 weeks</option>
+                    <option>1–3 months</option>
+                    <option>Just exploring options</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="budget">Indicative budget</label>
+                  <select id="budget" name="budget">
+                    <option value="">Prefer to discuss</option>
+                    <option>Under $500</option>
+                    <option>$500 – $2,000</option>
+                    <option>$2,000 – $10,000</option>
+                    <option>Over $10,000</option>
+                  </select>
+                </div>
               </div>
+
+              <div class="form-group">
+                <label for="message">About your project <span class="req">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="What do you need mapped, analysed or built? Include the area of interest and any deliverable formats you need (DWG, SHP, GeoTIFF, PDF…)." required></textarea>
+              </div>
+
               <div class="form-consent">
-                <input type="checkbox" id="consent" name="consent" />
-                <label for="consent">I agree to be contacted by GeoHuB and to the processing of my personal data as described in our privacy policy.</label>
+                <input type="checkbox" id="consent" name="consent" required />
+                <label for="consent">I agree to be contacted by GeoHuB about this enquiry.</label>
               </div>
+
               <button type="submit" class="btn-submit">
-                Send Message
+                Send Enquiry
                 <i class="bi bi-send"></i>
               </button>
+              <p class="form-reassure">
+                <i class="bi bi-shield-check"></i>
+                We reply within 24 hours. Your details are never shared or sold.
+              </p>
             </form>
+
+            <!-- Shown by main.js on a successful submit -->
+            <div class="form-success" id="formSuccess" hidden>
+              <div class="form-success-icon"><i class="bi bi-check-lg"></i></div>
+              <h3>Enquiry received.</h3>
+              <p>Thank you — we have your details and will reply within 24 hours, usually sooner.</p>
+              <p>If it is urgent, message us directly and we will pick it up straight away.</p>
+              <a class="btn-whatsapp-inline" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20just%20sent%20an%20enquiry%20through%20your%20website." target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp"></i> Continue on WhatsApp
+              </a>
+            </div>
+
+            <!-- Shown by main.js if the submission fails — never lose the lead -->
+            <div class="form-error-box" id="formError" hidden>
+              <p><strong>That didn't go through.</strong> Something blocked the submission — please reach us directly and we will respond right away:</p>
+              <div class="form-error-actions">
+                <a href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:gisdev67@gmail.com?subject=Project%20enquiry"><i class="bi bi-envelope"></i> gisdev67@gmail.com</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -676,6 +1231,27 @@
     </section>
 
   </main>
+
+  <!-- ═══════════════════════════════════════ FINAL CTA ══ -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>
+        Ready to put your project<br />
+        <em class="serif-accent">on the map?</em>
+      </h2>
+      <p>
+        Send us the brief. Within 24 hours you will have a written approach, a timeline
+        and a fixed price — free, and with no obligation to go ahead.
+      </p>
+      <div class="final-cta-actions">
+        <a href="#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+        <a class="btn-outline-white" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project." target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> WhatsApp us
+        </a>
+      </div>
+      <span class="final-cta-note">Typically answered the same working day · Nairobi, Kenya (EAT)</span>
+    </div>
+  </section>
 
   <!-- ══════════════════════════════════════════════ FOOTER ══ -->
   <footer class="footer">
@@ -694,31 +1270,31 @@
         <div class="footer-col">
           <h5>Services</h5>
           <ul>
-            <li><a href="#services">GIS Mapping &amp; Analysis</a></li>
-            <li><a href="#services">Land Surveying</a></li>
-            <li><a href="#services">Web GIS Development</a></li>
-            <li><a href="#services">Remote Sensing</a></li>
-            <li><a href="#services">Data Visualization</a></li>
+            <li><a href="/gis-mapping-services">GIS Mapping &amp; Spatial Analysis</a></li>
+            <li><a href="/land-surveying-kenya">Land Surveying in Kenya</a></li>
+            <li><a href="/#services">Web GIS Development</a></li>
+            <li><a href="/#services">Remote Sensing</a></li>
+            <li><a href="/#services">Data Visualization</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Sectors</h5>
+          <ul>
+            <li><a href="/land-infrastructure">Land &amp; Infrastructure</a></li>
+            <li><a href="/environment-agriculture">Environment &amp; Agriculture</a></li>
+            <li><a href="/urban-planning">Urban Planning &amp; GIS</a></li>
+            <li><a href="/disaster-risk">Disaster Risk &amp; Climate</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Company</h5>
           <ul>
-            <li><a href="#approach">Our Approach</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#portfolio">Projects</a></li>
-            <li><a href="#contact">Careers</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Technologies</h5>
-          <ul>
-            <li><a href="#">ArcGIS &amp; QGIS</a></li>
-            <li><a href="#">PostGIS &amp; Spatial SQL</a></li>
-            <li><a href="#">Google Earth Engine</a></li>
-            <li><a href="#">Mapbox &amp; Leaflet</a></li>
-            <li><a href="#">Python, R &amp; JavaScript</a></li>
+            <li><a href="/#approach">Our Approach</a></li>
+            <li><a href="/#process">How We Work</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#portfolio">Projects</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -744,8 +1320,26 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-  <script src="main.js"></script>
+  <!-- Floating WhatsApp — highest-converting element on the page for this market -->
+  <a class="wa-float"
+     href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project."
+     target="_blank" rel="noopener" aria-label="Chat with GeoHuB on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span class="wa-float-label">Chat with us</span>
+  </a>
+
+  <!-- Sticky mobile CTA — appears past the hero, hides over the contact form -->
+  <div class="sticky-cta" id="stickyCta">
+    <a class="sc-wa" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20would%20like%20to%20discuss%20a%20geospatial%20project." target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp
+    </a>
+    <a class="sc-quote" href="#contact">
+      Get a Free Quote <i class="bi bi-arrow-right"></i>
+    </a>
+  </div>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script defer src="main.js"></script>
 </body>
 </html>

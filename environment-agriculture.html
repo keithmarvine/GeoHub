@@ -1,0 +1,277 @@
+?<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Stamps <html class="js"> so CSS can safely hide content for animation.
+       Without it, conversion.css keeps everything visible. Must stay inline
+       and before the stylesheets to avoid a flash of unstyled content. -->
+  <script>document.documentElement.className += " js";</script>
+  <title>Agriculture &amp; Environmental Remote Sensing | NDVI &amp; Land Cover — GeoHuB</title>
+  <meta name="description" content="Satellite remote sensing for agriculture and environment: NDVI vegetation monitoring, land cover change detection, crop yield and drought analysis via Google Earth Engine." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#162035" />
+  <link rel="canonical" href="https://geohub-spatial-network.netlify.app/environment-agriculture" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="GeoHuB | The Spatial Network" />
+  <meta property="og:url" content="https://geohub-spatial-network.netlify.app/environment-agriculture" />
+  <meta property="og:title" content="Agriculture &amp; Environmental Remote Sensing | NDVI &amp; Land Cover" />
+  <meta property="og:description" content="Satellite-driven insights into land cover, vegetation health, and agricultural productivity — delivered to any desk in the world." />
+  <meta property="og:image" content="https://geohub-spatial-network.netlify.app/web_mapping.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <link rel="icon" type="image/svg+xml" href="/GeoHUB.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="conversion.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Environmental & Agricultural Remote Sensing",
+        "serviceType": "Vegetation monitoring, land cover mapping and agricultural spatial analysis",
+        "description": "NDVI time-series, land cover change detection, crop yield estimation and drought monitoring using Sentinel, Landsat and Google Earth Engine.",
+        "url": "https://geohub-spatial-network.netlify.app/environment-agriculture",
+        "provider": { "@id": "https://geohub-spatial-network.netlify.app/#organization" },
+        "areaServed": ["Kenya", "East Africa", "Africa", "Global"]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://geohub-spatial-network.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Sectors", "item": "https://geohub-spatial-network.netlify.app/#sectors" },
+          { "@type": "ListItem", "position": 3, "name": "Environment & Agriculture", "item": "https://geohub-spatial-network.netlify.app/environment-agriculture" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="subpage">
+
+  <header class="site-header scrolled" id="site-header">
+    <nav class="nav-bar">
+      <a href="/" class="nav-brand">
+        <img src="/GeoHUB.svg" alt="GeoHuB logo mark" class="nav-logo-icon" width="32" height="32" />
+        <span class="brand-name">GeoHuB | The Spatial Network</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/#services" class="nav-link">Expertise</a></li>
+        <li><a href="/#process" class="nav-link">How We Work</a></li>
+        <li><a href="/#about" class="nav-link">About</a></li>
+        <li><a href="/#portfolio" class="nav-link">Projects</a></li>
+        <li><a href="/#faq" class="nav-link">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="/#contact" class="btn-cta">Get a Free Quote</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="mobile-overlay" id="mobile-overlay">
+    <ul class="mob-nav-links">
+      <li><a href="/#services"  class="mob-link">Expertise</a></li>
+      <li><a href="/#process"   class="mob-link">How We Work</a></li>
+      <li><a href="/#about"     class="mob-link">About</a></li>
+      <li><a href="/#portfolio" class="mob-link">Projects</a></li>
+      <li><a href="/#faq"       class="mob-link">FAQ</a></li>
+      <li><a href="/#contact"   class="mob-link">Contact</a></li>
+    </ul>
+    <a href="/#contact" class="btn-mob-cta mob-link">Get a Free Quote →</a>
+    <a href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20have%20an%20agriculture%20or%20environment%20mapping%20project." class="btn-mob-wa" target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp us
+    </a>
+  </div>
+
+  <main>
+
+    <section class="sub-hero">
+      <div class="sub-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1800&amp;q=80')"></div>
+      <div class="sub-hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <i class="bi bi-chevron-right"></i>
+          <a href="/#sectors">Sectors</a>
+          <i class="bi bi-chevron-right"></i>
+          <span>Environment &amp; Agriculture</span>
+        </nav>
+        <h1>Environment &amp; Agriculture</h1>
+        <p class="sub-hero-tagline">
+          Satellite-driven insights into land cover, vegetation health, and agricultural
+          productivity — delivered to any desk in the world.
+        </p>
+        <div class="sub-hero-ctas">
+          <a href="/#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+          <a class="btn-outline-white" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20have%20an%20agriculture%20or%20environment%20mapping%20project." target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> WhatsApp us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sub-section">
+      <div class="sub-inner">
+        <div class="sub-intro">
+          <div>
+            <h2>Remote sensing intelligence for land and life</h2>
+            <p>
+              Agriculture and environmental management are increasingly data-driven disciplines.
+              Governments, NGOs, and agribusinesses need reliable spatial intelligence on crop
+              conditions, land degradation, and ecosystem change — and they need it without the
+              cost and delay of field surveys.
+            </p>
+            <p>
+              We deploy Google Earth Engine, Sentinel, and Landsat data to deliver vegetation
+              indices, land cover maps, change detection analyses, and soil moisture models — all
+              processed remotely and delivered as print-quality maps, GIS-ready rasters, and
+              analytical reports.
+            </p>
+            <ul class="highlight-list">
+              <li><i class="bi bi-check-lg"></i> NDVI, EVI, and SAVI vegetation index time-series</li>
+              <li><i class="bi bi-check-lg"></i> Multi-date land cover and land use change detection</li>
+              <li><i class="bi bi-check-lg"></i> Crop yield estimation and food security analysis</li>
+              <li><i class="bi bi-check-lg"></i> Soil moisture and drought monitoring via SAR</li>
+              <li><i class="bi bi-check-lg"></i> Deforestation and forest cover change mapping</li>
+              <li><i class="bi bi-check-lg"></i> Google Earth Engine cloud processing — global scale</li>
+            </ul>
+          </div>
+          <img class="sub-intro-img" loading="lazy" width="900" height="675"
+               src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&amp;fit=crop&amp;w=900&amp;q=80"
+               alt="Agricultural land viewed from above for vegetation index analysis" />
+        </div>
+      </div>
+    </section>
+
+    <section class="sub-section alt">
+      <div class="sub-inner">
+        <div class="section-label">
+          <span class="label-num">02</span>
+          <span>What We Deliver</span>
+        </div>
+        <div class="sub-services">
+          <article class="sub-service-card">
+            <i class="bi bi-tree"></i>
+            <h3>Vegetation Monitoring</h3>
+            <p>Regular or one-off NDVI and vegetation health assessments using multi-spectral satellite imagery across any area of interest globally.</p>
+            <div class="sub-tags"><span>Sentinel-2</span><span>Landsat</span><span>GEE</span><span>NDVI</span></div>
+          </article>
+          <article class="sub-service-card">
+            <i class="bi bi-grid"></i>
+            <h3>Land Cover Mapping</h3>
+            <p>Supervised and unsupervised classification of satellite imagery to map land cover types, detect change, and quantify transitions over time.</p>
+            <div class="sub-tags"><span>Random Forest</span><span>SVM</span><span>Change Detection</span></div>
+          </article>
+          <article class="sub-service-card">
+            <i class="bi bi-droplet"></i>
+            <h3>Agri &amp; Soil Analysis</h3>
+            <p>Crop type mapping, yield potential modelling, soil moisture tracking using SAR data, and precision agriculture spatial layers for farm management.</p>
+            <div class="sub-tags"><span>Sentinel-1 SAR</span><span>Crop Mapping</span><span>Soil Moisture</span></div>
+          </article>
+        </div>
+
+        <div class="sub-related">
+          <a href="/gis-mapping-services">GIS mapping &amp; spatial analysis <i class="bi bi-arrow-right"></i></a>
+          <a href="/disaster-risk">Disaster Risk &amp; Climate <i class="bi bi-arrow-right"></i></a>
+          <a href="/land-infrastructure">Land &amp; Infrastructure <i class="bi bi-arrow-right"></i></a>
+          <a href="/urban-planning">Urban Planning &amp; GIS <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <h2>Need satellite analysis<br /><em class="serif-accent">for your area of interest?</em></h2>
+      <p>Send us the brief. Within 24 hours you will have a written approach, a timeline and a fixed price — free, and with no obligation to go ahead.</p>
+      <div class="final-cta-actions">
+        <a href="/#contact" class="btn-gold">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+        <a class="btn-outline-white" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20have%20an%20agriculture%20or%20environment%20mapping%20project." target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> WhatsApp us
+        </a>
+      </div>
+      <span class="final-cta-note">Typically answered the same working day · Nairobi, Kenya (EAT)</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/GeoHUB.svg" alt="GeoHuB" class="nav-logo-icon" width="32" height="32" />
+          <span class="brand-name">GeoHuB | The Spatial Network</span>
+        </div>
+        <div class="footer-tagline">Global geospatial solutions, delivered remotely.</div>
+      </div>
+      <div class="footer-mid">
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="/gis-mapping-services">GIS Mapping &amp; Spatial Analysis</a></li>
+            <li><a href="/land-surveying-kenya">Land Surveying in Kenya</a></li>
+            <li><a href="/#services">Web GIS Development</a></li>
+            <li><a href="/#services">Remote Sensing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Sectors</h5>
+          <ul>
+            <li><a href="/land-infrastructure">Land &amp; Infrastructure</a></li>
+            <li><a href="/environment-agriculture">Environment &amp; Agriculture</a></li>
+            <li><a href="/urban-planning">Urban Planning &amp; GIS</a></li>
+            <li><a href="/disaster-risk">Disaster Risk &amp; Climate</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/#approach">Our Approach</a></li>
+            <li><a href="/#process">How We Work</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <div class="footer-social">
+            <a href="https://wa.me/254701644626" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:gisdev67@gmail.com"><i class="bi bi-envelope"></i> gisdev67@gmail.com</a>
+            <a href="tel:+254719576228"><i class="bi bi-telephone"></i> +254 719 576 228</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 GeoHuB | The Spatial Network. All rights reserved.</span>
+        <span>Nairobi, Kenya — serving clients worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20have%20an%20agriculture%20or%20environment%20mapping%20project." target="_blank" rel="noopener" aria-label="Chat with GeoHuB on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+    <span class="wa-float-label">Chat with us</span>
+  </a>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a class="sc-wa" href="https://wa.me/254701644626?text=Hi%20GeoHuB%2C%20I%20have%20an%20agriculture%20or%20environment%20mapping%20project." target="_blank" rel="noopener">
+      <i class="bi bi-whatsapp"></i> WhatsApp
+    </a>
+    <a class="sc-quote" href="/#contact">Get a Free Quote <i class="bi bi-arrow-right"></i></a>
+  </div>
+
+  <script defer src="main.js"></script>
+</body>
+</html>

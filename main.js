@@ -5,26 +5,62 @@
 ═══════════════════════════════════════════════════════════════ */
 
 /* ─── PRELOADER ────────────────────────────────────────────── */
+/* The preloader is decorative, but it gates startPage() — so if it
+   ever stalls, nothing on the page initialises. Three safeguards:
+   only show it on a first visit, cap how long it can run, and keep
+   a failsafe timer that starts the page regardless. */
 (function () {
   const el   = document.getElementById('preloader');
   const fill = document.getElementById('preloaderFill');
   const pct  = document.getElementById('preloaderPct');
-  if (!el) { startPage(); return; }
 
-  let val = 0;
+  let started = false;
+  function go() {
+    if (started) return;
+    started = true;
+    startPage();
+  }
+
+  /* Skip entirely with no preloader, on repeat views within the
+     session, or when the visitor has asked for reduced motion.
+     Sitting through this on every page view is pure friction. */
+  let seen = false;
+  try { seen = sessionStorage.getItem('geohubSeen') === '1'; } catch (e) { /* private mode */ }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!el || seen || reduced) {
+    if (el) el.classList.add('done');
+    go();
+    return;
+  }
+
+  try { sessionStorage.setItem('geohubSeen', '1'); } catch (e) { /* ignore */ }
+
+  /* Failsafe: whatever happens above, the page starts. */
+  const failsafe = setTimeout(() => {
+    el.classList.add('done');
+    go();
+  }, 2600);
+
+  const CAP = 900;              // ms the bar is allowed to run
+  const STEP = 60;
+  const begin = performance.now();
+
   const t = setInterval(() => {
-    val = Math.min(100, val + Math.random() * 18 + 6);
-    const v = Math.round(val);
+    const v = Math.min(100, Math.round(((performance.now() - begin) / CAP) * 100));
     if (fill) fill.style.width = v + '%';
     if (pct)  pct.textContent = v + '%';
-    if (val >= 100) {
+
+    if (v >= 100) {
       clearInterval(t);
+      el.classList.add('exiting');
       setTimeout(() => {
-        el.classList.add('exiting');
-        setTimeout(() => { el.classList.add('done'); startPage(); }, 850);
-      }, 250);
+        clearTimeout(failsafe);
+        el.classList.add('done');
+        go();
+      }, 450);
     }
-  }, 80);
+  }, STEP);
 })();
 
 /* ─── PAGE START ───────────────────────────────────────────── */
@@ -44,6 +80,8 @@ function startPage() {
   initContactForm();
   initNavActive();
   initTicker();
+  initFaq();
+  initStickyCta();
 }
 
 /* ─── CURSOR ───────────────────────────────────────────────── */
@@ -464,41 +502,127 @@ function initGeoCanvas() {
 }
 
 /* ─── CONTACT FORM ─────────────────────────────────────────── */
+/* Posts to Netlify Forms. The form also carries a real action="/thank-you"
+   so it still works with JS disabled — hence the preventDefault below:
+   without it the browser fires its own navigating POST alongside the fetch. */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
+
+  const wrap    = form.parentElement;
+  const success = document.getElementById('formSuccess');
+  const failure = document.getElementById('formError');
+
+  /* ── validation ── */
+  function setError(field, msg) {
+    const group = field.closest('.form-group, .form-consent');
+    if (!group) return;
+    group.classList.add('has-error');
+    let note = group.querySelector('.field-error');
+    if (!note) {
+      note = document.createElement('span');
+      note.className = 'field-error';
+      group.appendChild(note);
+    }
+    note.textContent = msg;
+    field.setAttribute('aria-invalid', 'true');
+  }
+
+  function clearError(field) {
+    const group = field.closest('.form-group, .form-consent');
+    if (!group) return;
+    group.classList.remove('has-error');
+    const note = group.querySelector('.field-error');
+    if (note) note.textContent = '';
+    field.removeAttribute('aria-invalid');
+  }
+
+  function validate() {
+    const fname   = form.querySelector('#fname');
+    const email   = form.querySelector('#email');
+    const message = form.querySelector('#message');
+    const consent = form.querySelector('#consent');
+    let firstBad  = null;
+
+    [fname, email, message, consent].forEach(f => f && clearError(f));
+
+    if (fname && !fname.value.trim()) {
+      setError(fname, 'Please tell us your name.');
+      firstBad = firstBad || fname;
+    }
+    if (email) {
+      const v = email.value.trim();
+      if (!v) {
+        setError(email, 'We need an email address to reply to.');
+        firstBad = firstBad || email;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
+        setError(email, 'That email address does not look right.');
+        firstBad = firstBad || email;
+      }
+    }
+    if (message && !message.value.trim()) {
+      setError(message, 'A sentence or two about your project is enough.');
+      firstBad = firstBad || message;
+    }
+    if (consent && !consent.checked) {
+      setError(consent, 'Please tick this so we can reply to you.');
+      firstBad = firstBad || consent;
+    }
+
+    if (firstBad) {
+      firstBad.focus({ preventScroll: true });
+      firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+    return true;
+  }
+
+  /* clear an error as soon as the visitor fixes it */
+  form.querySelectorAll('input, textarea, select').forEach(f => {
+    f.addEventListener('input',  () => clearError(f));
+    f.addEventListener('change', () => clearError(f));
+  });
+
+  /* ── submit ── */
   form.addEventListener('submit', e => {
-    const btn = form.querySelector('.btn-submit');
+    e.preventDefault();
+    if (!validate()) return;
+
+    const btn  = form.querySelector('.btn-submit');
     const orig = btn.innerHTML;
     btn.innerHTML = 'Sending… <i class="bi bi-arrow-repeat spin"></i>';
     btn.disabled = true;
+    if (failure) failure.hidden = true;
 
-    // Submit form data to Netlify
-    const formData = new FormData(form);
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData)
+      body: new URLSearchParams(new FormData(form))
     })
-    .then(() => {
-      btn.innerHTML = 'Message Sent <i class="bi bi-check-lg"></i>';
-      btn.style.background = '#22c55e';
+    .then(res => {
+      if (!res.ok) throw new Error('Netlify responded ' + res.status);
       form.reset();
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3500);
+      if (success) {
+        form.hidden = true;
+        success.hidden = false;
+        success.setAttribute('tabindex', '-1');
+        success.focus({ preventScroll: true });
+        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        btn.innerHTML = 'Message sent <i class="bi bi-check-lg"></i>';
+      }
     })
     .catch(err => {
+      /* Never swallow a lead. Surface the direct channels instead. */
       console.error('Form submission error:', err);
-      btn.innerHTML = 'Error sending <i class="bi bi-exclamation-triangle"></i>';
-      btn.style.background = '#ef4444';
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3500);
+      btn.innerHTML = orig;
+      btn.disabled = false;
+      if (failure) {
+        failure.hidden = false;
+        failure.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        btn.innerHTML = 'Could not send — please email us <i class="bi bi-exclamation-triangle"></i>';
+      }
     });
   });
 }
@@ -523,4 +647,87 @@ function initTicker() {
   if (!t) return;
   t.addEventListener('mouseenter', () => t.style.animationPlayState = 'paused');
   t.addEventListener('mouseleave', () => t.style.animationPlayState = 'running');
+}
+
+/* ─── FAQ ACCORDION ────────────────────────────────────────── */
+function initFaq() {
+  const items = document.querySelectorAll('.faq-item');
+  if (!items.length) return;
+
+  items.forEach(item => {
+    const btn   = item.querySelector('.faq-q');
+    const panel = item.querySelector('.faq-a');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+
+      /* one at a time — keeps the section scannable */
+      items.forEach(other => {
+        other.classList.remove('open');
+        const b = other.querySelector('.faq-q');
+        const p = other.querySelector('.faq-a');
+        if (b) b.setAttribute('aria-expanded', 'false');
+        if (p) p.style.maxHeight = null;
+      });
+
+      if (!open) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* keep an open panel correctly sized when the text reflows */
+  let ft;
+  window.addEventListener('resize', () => {
+    clearTimeout(ft);
+    ft = setTimeout(() => {
+      const open = document.querySelector('.faq-item.open .faq-a');
+      if (open) open.style.maxHeight = open.scrollHeight + 'px';
+    }, 200);
+  });
+}
+
+/* ─── STICKY MOBILE CTA ────────────────────────────────────── */
+/* Appears once the visitor is past the hero, hides over the contact
+   section so it never covers the form it is pointing at. */
+function initStickyCta() {
+  const bar = document.getElementById('stickyCta');
+  if (!bar) return;
+
+  const hero    = document.querySelector('.hero, .sub-hero');
+  const contact = document.getElementById('contact');
+  const footer  = document.querySelector('.footer');
+
+  let pastHero = false;
+  let atTarget = false;
+
+  const apply = () => bar.classList.toggle('show', pastHero && !atTarget);
+
+  if (hero) {
+    new IntersectionObserver(([e]) => {
+      pastHero = !e.isIntersecting;
+      apply();
+    }, { threshold: 0, rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+  } else {
+    pastHero = true;
+  }
+
+  /* track each target separately — an IO callback only reports the
+     elements that changed, not everything being observed */
+  const visible = new Set();
+  const hideOver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) visible.add(e.target);
+      else visible.delete(e.target);
+    });
+    atTarget = visible.size > 0;
+    apply();
+  }, { threshold: 0 });
+  if (contact) hideOver.observe(contact);
+  if (footer)  hideOver.observe(footer);
+
+  apply();
 }

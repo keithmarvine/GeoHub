@@ -5,14 +5,135 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Route /sector to sector.html for clean URLs
+# ─────────────────────────────────────────────────────────────
+# Clean URLs — canonical tags on each page point at these.
+# ─────────────────────────────────────────────────────────────
 [[redirects]]
-  from   = "/sector"
-  to     = "/sector.html"
+  from = "/thank-you"
+  to   = "/thank-you.html"
   status = 200
 
-# Handle form submissions
+[[redirects]]
+  from = "/land-infrastructure"
+  to   = "/land-infrastructure.html"
+  status = 200
+
+[[redirects]]
+  from = "/environment-agriculture"
+  to   = "/environment-agriculture.html"
+  status = 200
+
+[[redirects]]
+  from = "/urban-planning"
+  to   = "/urban-planning.html"
+  status = 200
+
+[[redirects]]
+  from = "/disaster-risk"
+  to   = "/disaster-risk.html"
+  status = 200
+
+[[redirects]]
+  from = "/land-surveying-kenya"
+  to   = "/land-surveying-kenya.html"
+  status = 200
+
+[[redirects]]
+  from = "/gis-mapping-services"
+  to   = "/gis-mapping-services.html"
+  status = 200
+
+# ─────────────────────────────────────────────────────────────
+# Legacy sector URLs → static pages.
+# The old pages rendered client-side from ?id=, which search
+# engines could barely see. These preserve any existing links.
+# ─────────────────────────────────────────────────────────────
+[[redirects]]
+  from = "/sector.html"
+  to   = "/land-infrastructure"
+  status = 301
+  force = true
+  [redirects.query]
+    id = "land-infrastructure"
+
+[[redirects]]
+  from = "/sector.html"
+  to   = "/environment-agriculture"
+  status = 301
+  force = true
+  [redirects.query]
+    id = "environment-agriculture"
+
+[[redirects]]
+  from = "/sector.html"
+  to   = "/urban-planning"
+  status = 301
+  force = true
+  [redirects.query]
+    id = "urban-planning"
+
+[[redirects]]
+  from = "/sector.html"
+  to   = "/disaster-risk"
+  status = 301
+  force = true
+  [redirects.query]
+    id = "disaster-risk"
+
+# Any other sector hit → home
+[[redirects]]
+  from = "/sector"
+  to   = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/sector.html"
+  to   = "/"
+  status = 301
+  force = true
+
+# ─────────────────────────────────────────────────────────────
+# Security headers
+# ─────────────────────────────────────────────────────────────
 [[headers]]
-  for = "/"
+  for = "/*"
   [headers.values]
-    Content-Type = "text/html; charset=utf-8"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# ─────────────────────────────────────────────────────────────
+# Caching — assets are unhashed, so keep HTML short-lived and
+# let images sit in cache.
+# ─────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
