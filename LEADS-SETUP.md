@@ -56,34 +56,33 @@ after deploy (make a trivial edit to `index.html` and redeploy to force it).
 
 ---
 
-## 3. Add your real testimonials — the biggest single conversion lever left
+## 3. Testimonials — done
 
-`index.html` has a testimonials section built and styled, containing **three
-placeholder cards**. They are deliberately loud and ugly: dashed amber borders and a
-warning banner, so they cannot go live unnoticed.
+Three real reviews are now live in the Client Feedback section, taken verbatim from
+your Fiverr profile:
 
-I did not write testimonials for you. Invented client quotes are the fastest way to
-lose a serious client who checks, and they are illegal in several of the markets you
-sell into.
+| Client | Country | Why this one |
+|---|---|---|
+| `fns_surveying` | United Kingdom | A **surveying firm** hired you. Another survey business trusting you is the strongest proof on the page |
+| `rogerarias1992` | United States | Specific and detailed — names responsiveness, clear communication and a professional result |
+| `jordansloan494` | United States | **Repeat client.** Someone coming back is worth more than any adjective |
 
-**Your Fiverr reviews are real testimonials and you are free to quote them.** For each
-one, send me:
+Only trimming and sentence-case were applied. No wording was added and nothing is
+invented, so every quote can be checked against your public profile — which is exactly
+why the section links to it and states the review count.
 
-1. The quote text — the buyer's own words, lightly trimmed is fine
-2. First name or initials
-3. Country
-4. Project type, e.g. "Topographic survey, 40 ha"
+**If you add more later, keep the same rule:** real words only, and keep the handle and
+country so the review stays verifiable. One fabricated quote discovered by a serious
+client costs more than all 43 real ones earn you.
 
-Specific beats glowing. *"Delivered the contours in the CAD format our engineers
-needed"* outperforms *"great service"* every time, because it proves a competence the
-next buyer is worried about.
+### Two things worth doing with these
 
-**Until you send them, do one of two things — do not leave it as-is:**
-
-- Fill the three cards in, then delete `is-placeholder` from
-  `<section class="testimonials is-placeholder" id="testimonials">` and delete the
-  `.placeholder-notice` block, **or**
-- Delete the whole `<section class="testimonials ...">` block
+- **Deliberately no star-rating markup.** Google does not show review stars for
+  self-hosted testimonials about your own business, and marking them up can trigger a
+  Search Console warning. The count and the profile link do that job honestly instead.
+- **The "43 reviews" figure is now hardcoded.** Update it in `index.html` when it
+  grows — search for `43</strong> client reviews`. A stale number is a small credibility
+  leak.
 
 ---
 

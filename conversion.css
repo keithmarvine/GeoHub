@@ -265,6 +265,53 @@ html:not(.js) .sticky-cta { display: none !important; }
   font-style: italic;
 }
 
+.testimonials-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+.testimonials-head .section-headline { margin-bottom: 0; }
+.testimonials-head .body-text { margin: 0; }
+
+/* Verifiability is the point — the count and the link do the
+   work that a star rating cannot on your own website. */
+.testimonials-proof {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--br);
+}
+.testimonials-proof span {
+  font-size: .9rem;
+  color: var(--g1);
+}
+.testimonials-proof strong {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--nv);
+  margin-right: .35rem;
+}
+.testimonials-proof a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--nv);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gd);
+  padding-bottom: 2px;
+  transition: color .3s var(--ease), gap .3s var(--ease);
+}
+.testimonials-proof a:hover { color: var(--gd); gap: .7rem; }
+.testimonials-proof i { font-size: .8rem; color: var(--gd); }
+
 /* ─── FAQ ──────────────────────────────────────────────────── */
 .faq-section { padding: 7rem 0; background: var(--bg); }
 .faq-layout {
@@ -835,6 +882,7 @@ html:not(.js) .sticky-cta { display: none !important; }
   .process-steps    { grid-template-columns: repeat(2, 1fr); }
   .process-head     { grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
   .testimonial-grid { grid-template-columns: 1fr; }
+  .testimonials-head { grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
   .faq-layout       { grid-template-columns: 1fr; gap: 2.5rem; }
   .faq-intro        { position: static; }
   .sub-intro        { grid-template-columns: 1fr; gap: 2.5rem; }
