@@ -71,10 +71,6 @@ function startPage() {
   initMobileMenu();
   initAnchorScroll();
   initScrollAnims();
-  initCounters();
-  initSurveyThumbs();
-  initLightbox();
-  initOpsPanel();
   initGlobe();
   initGeoCanvas();
   initContactForm();
@@ -163,120 +159,6 @@ function initScrollAnims() {
     '.sector-card, .client-box, .ops-country, .survey-thumb, .proj-row, ' +
     '.survey-featured, .contact-right, .ops-right'
   ).forEach(el => io.observe(el));
-}
-
-/* ─── COUNTER ANIMATION ────────────────────────────────────── */
-function initCounters() {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      io.unobserve(e.target);
-      const target = +e.target.dataset.count;
-      const start  = performance.now();
-      const dur    = 1600;
-      (function step(now) {
-        const p = Math.min(1, (now - start) / dur);
-        const eased = 1 - Math.pow(1 - p, 3);
-        e.target.textContent = Math.floor(eased * target);
-        if (p < 1) requestAnimationFrame(step);
-        else e.target.textContent = target;
-      })(start);
-    });
-  }, { threshold: 0.5 });
-
-  document.querySelectorAll('[data-count]').forEach(el => io.observe(el));
-}
-
-/* ─── SURVEY THUMB SWITCHER ────────────────────────────────── */
-function initSurveyThumbs() {
-  const thumbs    = document.querySelectorAll('.survey-thumb');
-  const featImg   = document.getElementById('featuredImgEl');
-  const featTag   = document.getElementById('featuredTag');
-  const featTitle = document.getElementById('featuredTitle');
-  const featDesc  = document.getElementById('featuredDesc');
-  const featSpecs = document.getElementById('featuredSpecs');
-
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      thumbs.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-
-      const featuredImg = document.querySelector('.survey-featured-img');
-      const featuredMeta = document.querySelector('.survey-featured-meta');
-      [featuredImg, featuredMeta].forEach(el => { if (el) el.style.opacity = '0'; });
-
-      setTimeout(() => {
-        if (featImg)   featImg.src = thumb.dataset.img;
-        if (featTag)   featTag.innerHTML = thumb.dataset.tag;
-        if (featTitle) featTitle.innerHTML = thumb.dataset.title;
-        if (featDesc)  featDesc.innerHTML = thumb.dataset.desc;
-        if (featSpecs) {
-          const specs = JSON.parse(thumb.dataset.specs || '[]');
-          featSpecs.innerHTML = specs.map(([icon, label]) =>
-            `<div class="spec-item"><i class="bi ${icon}"></i><span>${label}</span></div>`
-          ).join('');
-        }
-        [featuredImg, featuredMeta].forEach(el => { if (el) el.style.opacity = ''; });
-      }, 200);
-    });
-  });
-}
-
-/* ─── LIGHTBOX ─────────────────────────────────────────────── */
-function initLightbox() {
-  const lb    = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightboxImg');
-  const lbCls = document.getElementById('lightboxClose');
-  const zoom  = document.getElementById('surveyZoomBtn');
-  if (!lb) return;
-
-  const open  = src => { lbImg.src = src; lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
-  const close = ()  => { lb.classList.remove('open'); setTimeout(() => { lbImg.src = ''; document.body.style.overflow = ''; }, 300); };
-
-  if (zoom)  zoom.addEventListener('click', () => { const img = document.getElementById('featuredImgEl'); if (img) open(img.src); });
-  if (lbCls) lbCls.addEventListener('click', close);
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
-}
-
-/* ─── OPS PANEL ────────────────────────────────────────────── */
-function initOpsPanel() {
-  const stream = document.getElementById('opsStream');
-  const coord  = document.getElementById('opsCoord');
-
-  const items = [
-    { color: 'stream-green', text: 'Topographic survey',   loc: 'UK Client' },
-    { color: 'stream-blue',  text: 'NDVI time-series',     loc: 'East Africa' },
-    { color: 'stream-gold',  text: 'Web GIS portal',       loc: 'Middle East' },
-    { color: 'stream-green', text: 'Cadastral mapping',    loc: 'West Africa' },
-    { color: 'stream-blue',  text: 'Flood risk model',     loc: 'South Asia' },
-    { color: 'stream-gold',  text: 'Urban growth atlas',   loc: 'Europe' },
-    { color: 'stream-green', text: 'Boundary survey',      loc: 'East Africa' },
-    { color: 'stream-blue',  text: 'Satellite analysis',   loc: 'Americas' },
-    { color: 'stream-gold',  text: 'Infrastructure GIS',   loc: 'Gulf Region' },
-  ];
-  let idx = 0;
-
-  if (stream) {
-    setInterval(() => {
-      const item = items[idx++ % items.length];
-      const mins = Math.floor(Math.random() * 10) + 1;
-      const row = document.createElement('div');
-      row.className = 'ops-stream-row';
-      row.innerHTML = `<span class="stream-dot ${item.color}"></span><span class="stream-text">${item.text} · <em>${item.loc}</em></span><span class="stream-time">${mins}m ago</span>`;
-      stream.prepend(row);
-      while (stream.children.length > 5) stream.removeChild(stream.lastChild);
-    }, 3500);
-  }
-
-  if (coord) {
-    const base = { lat: -1.2921, lng: 36.8219 };
-    setInterval(() => {
-      const lat = (base.lat + (Math.random() - .5) * .0004).toFixed(4);
-      const lng = (base.lng + (Math.random() - .5) * .0004).toFixed(4);
-      coord.textContent = `${Math.abs(lat)}° S, ${Math.abs(lng)}° E`;
-    }, 2600);
-  }
 }
 
 /* ─── CANVAS GLOBE ─────────────────────────────────────────── */
