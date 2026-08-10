@@ -6,6 +6,32 @@ lead-generating website.** The rest compounds over months.
 
 ---
 
+## Repositioning: global remote GIS, not Kenya fieldwork
+
+The site originally leaned local — a dedicated "Land Surveying in Kenya" page, Google
+Business Profile as the top priority, Kenya-first SEO. You corrected that: you do not
+want physical land surveys, and there is no realistic market for you in that space —
+local surveyors already own it. What you actually sell is **remote GIS mapping, spatial
+analysis, remote sensing and web GIS development**, plus **processing** survey data
+that someone else captured in the field.
+
+What changed as a result:
+
+- `land-surveying-kenya.html` is **retired** (301s to `/gis-mapping-services`). It was
+  built entirely around dispatching local field surveyors, which is not your business.
+- Every remaining mention of surveying, on the homepage and on `/land-infrastructure`,
+  now reads as **data processing and CAD drafting** — "topographic survey data
+  processed into DWG/DXF," not "we conduct surveys." Check the on-page FAQ "How can you
+  survey my site if you are not physically there?" — that answer is the honest version
+  of your business and everything else was brought in line with it.
+- The homepage title and meta description dropped "Nairobi" as the lead hook and now
+  open with GIS Mapping, Remote Sensing and Spatial Analysis — the global-intent terms
+  a UK or US buyer actually searches.
+- **Google Business Profile moved from priority #1 to optional** (see §4 below) — it
+  targets local search, which is no longer the market you're chasing.
+
+---
+
 ## 1. Check Netlify for leads you may already have — do this first
 
 Your contact form has carried `data-netlify="true"` since it first went live, which
@@ -86,27 +112,29 @@ client costs more than all 43 real ones earn you.
 
 ---
 
-## 4. Google Business Profile — highest-return action on this entire page
+## 4. Google Business Profile — optional now, not the priority
 
-This will almost certainly bring you Kenyan clients **before** the website ranks for
-anything. It is free and takes about twenty minutes.
+Previously framed as the #1 action. Downgraded because it primarily helps **local**
+search — "land surveyor Nairobi," "GIS mapping Kenya" — and you've decided that's not
+your market. A profile under category **Surveyor** would actively attract the wrong
+enquiries: people wanting someone to show up on site.
+
+**Worth doing anyway, but as a trust signal, not a lead channel:** when a prospect
+finds you through Fiverr or the website and searches your name before hiring, a
+verified Google listing reads as a real, established business rather than a one-person
+Fiverr gig. If you set one up:
 
 1. <https://business.google.com> → create a profile for **GeoHuB | The Spatial Network**
-2. Category: **Surveyor** (add secondary: *Mapping service*, *Engineering consultant*)
-3. If you do not want your address public, set it as a **service-area business** and
-   list the counties or regions you cover
-4. Phone and website must be **character-for-character identical** to the site:
-   - Phone: `+254 719 576 228`
-   - Website: `https://geohub-spatial-network.netlify.app/`
-5. Complete verification (postcard, phone or video — Google decides which)
-6. Upload real work: survey drawings, map outputs, screenshots of platforms you built
-7. **Ask past clients for Google reviews.** Review count and recency are among the
-   strongest local ranking factors that are actually within your control.
+2. Category: **GIS software company** or **Data processing service** — not "Surveyor."
+   The category is what determines which searches you show up for.
+3. Set it as a **service-area business** rather than publishing a street address — you
+   are not trying to rank for "near me" searches
+4. Phone and website must be **character-for-character identical** to the site
+5. Upload real work: map outputs, screenshots of platforms you built, processed survey
+   deliverables
 
-> The address, phone and business name in the site's structured data must match this
-> profile exactly. If you change one, change the other — mismatches actively weaken
-> local ranking. In `index.html`, search for `"@type": ["ProfessionalService"` and you
-> will find them.
+Skip this entirely for now if you'd rather spend the twenty minutes elsewhere — nothing
+downstream depends on it.
 
 ---
 
@@ -121,7 +149,6 @@ Without this you are guessing about your own site.
 3. **Sitemaps** → submit `sitemap.xml`
 4. **URL Inspection** → paste each page URL → **Request indexing**:
    - `/`
-   - `/land-surveying-kenya`
    - `/gis-mapping-services`
    - `/land-infrastructure`
    - `/environment-agriculture`
@@ -156,15 +183,17 @@ would undo a good part of the SEO work here.
 | **Lead quality** | Added phone, project location, timeline and budget fields — you can now triage enquiries before replying |
 | **Conversion** | Outcome-led hero, trust bar, WhatsApp everywhere, sticky mobile bar, "How We Work", 7-question FAQ, and three new CTA points |
 | **SEO** | Real page titles, canonicals, Open Graph, LocalBusiness + FAQ structured data, `robots.txt`, `sitemap.xml` |
-| **Indexable pages** | Went from **1 indexable page to 7** — the four sector pages were previously invisible to search engines |
+| **Indexable pages** | Went from **1 indexable page to 6** — the four sector pages were previously invisible to search engines |
+| **Positioning** | Repositioned from Kenya-local fieldwork to global remote GIS — see the section above |
 | **Robustness** | The site no longer renders blank if JavaScript fails |
 
 ### Honest expectations
 
-Sections 1–3 change your conversion rate the day they ship. Sections 4–6 do not work on
+Sections 1–3 change your conversion rate the day they ship. Sections 5–6 do not work on
 a schedule: a new site with no backlinks typically takes **3–6 months** to rank for
-anything competitive. The Google Business Profile will very likely produce Kenyan leads
-before the website does.
+anything competitive, and global remote-service terms are more competitive than local
+ones — expect the slower end of that range. There is no local-search shortcut here
+anymore, since that's no longer the market.
 
 This work makes ranking possible. It does not make it immediate, and anyone who tells
 you otherwise is selling something.

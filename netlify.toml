@@ -34,14 +34,19 @@
   status = 200
 
 [[redirects]]
-  from = "/land-surveying-kenya"
-  to   = "/land-surveying-kenya.html"
-  status = 200
-
-[[redirects]]
   from = "/gis-mapping-services"
   to   = "/gis-mapping-services.html"
   status = 200
+
+# ─────────────────────────────────────────────────────────────
+# Retired pages. 301s preserve any link equity / bookmarks
+# rather than letting the URL 404.
+# ─────────────────────────────────────────────────────────────
+[[redirects]]
+  from = "/land-surveying-kenya"
+  to   = "/gis-mapping-services"
+  status = 301
+  force = true
 
 # ─────────────────────────────────────────────────────────────
 # Legacy sector URLs → static pages.
