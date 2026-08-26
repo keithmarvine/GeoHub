@@ -312,6 +312,227 @@ html:not(.js) .sticky-cta { display: none !important; }
 .testimonials-proof a:hover { color: var(--gd); gap: .7rem; }
 .testimonials-proof i { font-size: .8rem; color: var(--gd); }
 
+/* Deep-link from an expertise card into its segment landing page */
+.exp-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1.25rem;
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--nv);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gd);
+  padding-bottom: 2px;
+  transition: color .3s var(--ease), gap .3s var(--ease);
+}
+.exp-card-link:hover { color: var(--gd); gap: .75rem; }
+.exp-card-link i { font-size: .75rem; color: var(--gd); }
+.exp-card--dark .exp-card-link { color: var(--of); }
+.exp-card--dark .exp-card-link:hover { color: var(--gd); }
+
+/* ═══════════════════════════════════════════════════════════════
+   SEGMENT LANDING PAGE COMPONENTS
+   Built for /survey-drafting-outsourcing, reusable for the other
+   buyer-type pages. Structure follows the competitor bureaus:
+   deliverable list → handover models → liability boundary →
+   standards + turnaround → real work → proof → trial offer.
+═══════════════════════════════════════════════════════════════ */
+
+/* Deliverable list — denser than a card grid because the point is
+   coverage: a surveyor scanning for their specific job type. */
+.deliverable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem 2.25rem;
+  margin-top: 3rem;
+}
+.deliverable {
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--br);
+}
+.deliverable h3 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--nv);
+  margin: 0 0 .5rem;
+  letter-spacing: -.01em;
+}
+.deliverable p {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--g1);
+  margin: 0;
+}
+
+/* Liability boundary — deliberately the most visually distinct
+   block on the page. It is the thing that makes a licensed firm
+   comfortable, so it should not read as body copy. */
+.boundary-note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 2.75rem;
+  background: var(--nv);
+  border-radius: var(--r-lg);
+  color: var(--of);
+}
+.boundary-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+}
+.boundary-icon i { font-size: 1.5rem; color: var(--gd); }
+.boundary-note h2 {
+  color: var(--of);
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+}
+.boundary-note p {
+  color: rgba(248, 247, 244, .82);
+  line-height: 1.75;
+  margin: 0 0 1rem;
+  max-width: 68ch;
+}
+.boundary-note strong { color: var(--of); }
+.boundary-note .boundary-foot {
+  margin: 1.5rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  font-size: .92rem;
+  color: rgba(248, 247, 244, .6);
+}
+
+/* Two-column prose pair (standards / turnaround) */
+.split-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+.split-pair h2 {
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  color: var(--nv);
+  margin: 0 0 1rem;
+  letter-spacing: -.02em;
+}
+.split-pair p {
+  color: var(--g1);
+  line-height: 1.8;
+  margin: 0 0 1rem;
+}
+
+/* Work samples — real drawings, so let them be large enough to
+   read as evidence rather than decoration. */
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+.sample-card {
+  margin: 0;
+  background: var(--of);
+  border: 1px solid var(--br);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.sample-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(22, 32, 53, .12);
+}
+.sample-card img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: center top;
+  background: #fff;
+}
+.sample-card figcaption {
+  padding: 1rem 1.15rem 1.25rem;
+  font-size: .86rem;
+  line-height: 1.55;
+  color: var(--g1);
+  border-top: 1px solid var(--br);
+}
+
+/* Single pull-quote (one strong testimonial, not a grid) */
+.single-quote {
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: center;
+}
+.single-quote .tq {
+  font-size: 2rem;
+  color: var(--gd);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+.single-quote blockquote { margin: 0; }
+.single-quote blockquote p {
+  font-family: var(--ms);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--nv);
+  margin: 0 0 1.5rem;
+}
+.single-quote figcaption { display: grid; gap: .3rem; }
+.single-quote .t-name { font-weight: 600; color: var(--nv); font-size: .95rem; }
+.single-quote .t-meta { font-size: .84rem; color: var(--g2); }
+.single-quote .quote-note {
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--br);
+  font-size: .87rem;
+  color: var(--g2);
+}
+.single-quote .quote-note a {
+  color: var(--nv);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gd);
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+.single-quote .quote-note a:hover { color: var(--gd); }
+
+/* Trial offer block */
+.trial-block {
+  max-width: 72ch;
+}
+.trial-block h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--nv);
+  margin: 0 0 1.25rem;
+  letter-spacing: -.02em;
+}
+.trial-block p {
+  color: var(--g1);
+  line-height: 1.8;
+  margin: 0 0 1rem;
+}
+.trial-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .split-pair { grid-template-columns: 1fr; gap: 2.75rem; }
+  .boundary-note { grid-template-columns: 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+}
+@media (max-width: 560px) {
+  .sample-card img { height: 190px; }
+  .trial-actions > * { width: 100%; justify-content: center; }
+}
+
 /* ─── FAQ ──────────────────────────────────────────────────── */
 .faq-section { padding: 7rem 0; background: var(--bg); }
 .faq-layout {
